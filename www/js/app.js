@@ -76,22 +76,22 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('tab.view-profile-user-detail', {
-    url: '/view-profile/:userId',
+  .state('tab.view-profile-platform-detail', {
+    url: '/view-profile/:platformId',
     views: {
       'tab-view-profile': {
-        templateUrl: 'templates/user-detail.html',
-        controller: 'UserDetailCtrl'
+        templateUrl: 'templates/platform-detail.html',
+        controller: 'PlatformDetailCtrl'
       }
     }
   })
 
-  .state('tab.edit-profile-user-detail', {
-    url: '/edit-profile/:userId',
+  .state('tab.edit-profile-platform-detail', {
+    url: '/edit-profile/:platformId',
     views: {
       'tab-edit-profile': {
-        templateUrl: 'templates/user-detail.html',
-        controller: 'UserDetailCtrl'
+        templateUrl: 'templates/platform-detail.html',
+        controller: 'PlatformDetailCtrl'
       }
     }
   })

@@ -14,15 +14,15 @@
   <ion-content class="padding has-header has-subheader has-subheader-large" >
   	<ion-list type="list-inset">
 
-  		<ion-item class="item-avatar item-icon-right"  ng-repeat="user in edit_profile | filter: query" type="item-text-wrap" ng-href="#/tab/view-profile/{{user.id}}"  on-hold="onHold({{user.code}})">
-        <img ng-src="{{user.face}}">
-        <h2>{{user.name}}</h2>
-        <p>{{user.lastText}}</p>
+  		<ion-item class="item-avatar item-icon-right"  ng-repeat="platform in platforms | filter: query" type="item-text-wrap" ng-href="#/tab/view-profile/{{platform.id}}"  on-hold="onHold({{platform.code}})">
+        <img ng-src="{{platform.face}}">
+        <h2>{{platform.name}}</h2>
+        <p>{{platform.lastText}}</p>
 				<!--         <i class="icon ion-chevron-right icon-accessory"></i> -->        
  				
- 				<span class="badge badge-calm">{{user.code}}</span>
+ 				<span class="badge badge-calm">{{platform.code}}</span>
 
-   			<!--      <ion-option-button class="button-assertive" ng-click="remove(user)">
+   			<!--      <ion-option-button class="button-assertive" ng-click="remove(platform)">
           Delete
         </ion-option-button> -->
       </ion-item>

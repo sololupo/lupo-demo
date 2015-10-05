@@ -6,13 +6,13 @@
   </ion-nav-title>
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in edit_profile" type="item-text-wrap" ng-href="#/tab/edit-profile/{{user.id}}">
-        <img ng-src="{{user.face}}">
-        <h2>{{user.name}}</h2>
-        <p>{{user.lastText}}</p>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="platform in platforms" type="item-text-wrap" ng-href="#/tab/edit-profile/{{platform.id}}">
+        <img ng-src="{{platform.face}}">
+        <h2>{{platform.name}}</h2>
+        <p>{{platform.lastText}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
-        <ion-option-button class="button-assertive" ng-click="remove(user)">
+        <ion-option-button class="button-assertive" ng-click="remove(platform)">
           Delete
         </ion-option-button>
       </ion-item>

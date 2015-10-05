@@ -57,7 +57,7 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('UserDetailCtrl', function($scope, $stateParams, Platforms) {
+.controller('PlatformDetailCtrl', function($scope, $stateParams, Platforms) {
   $scope.platform = Platforms.get($stateParams.platformId);
 })
 
