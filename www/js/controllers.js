@@ -35,6 +35,9 @@ angular.module('starter.controllers', [])
   
   $scope.platforms = Platforms.all();
 
+  $scope.onHold = function(code) {
+    cordova.plugins.clipboard.copy(code);
+  }
 
   $scope.callApi = function() {
     // Just call the API as you'd do using $http
