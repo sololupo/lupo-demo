@@ -1,0 +1,12 @@
+{
+  "name": "lupo-demo",
+  "app_id": "8813360f",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}
