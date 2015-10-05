@@ -1,10 +1,10 @@
 angular.module('starter.services', [])
 
-.factory('EditProfile', function() {
+.factory('Platforms', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var edit_profile = [{
+  var platforms = [{
     id: 0,
     name: 'Uber',
     lastText: 'Your private driver',
@@ -38,15 +38,15 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
-      return edit_profile;
+      return platforms;
     },
-    remove: function(user) {
-      edit_profile.splice(edit_profile.indexOf(user), 1);
+    remove: function(platform) {
+      platforms.splice(platforms.indexOf(platform), 1);
     },
-    get: function(userId) {
-      for (var i = 0; i < edit_profile.length; i++) {
-        if (edit_profile[i].id === parseInt(userId)) {
-          return edit_profile[i];
+    get: function(platformId) {
+      for (var i = 0; i < platforms.length; i++) {
+        if (platforms[i].id === parseInt(platformId)) {
+          return platforms[i];
         }
       }
       return null;

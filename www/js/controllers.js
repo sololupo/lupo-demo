@@ -31,9 +31,9 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('ViewProfileCtrl', function($scope, $http, EditProfile) {
+.controller('ViewProfileCtrl', function($scope, $http, Platforms) {
   
-  $scope.edit_profile = EditProfile.all();
+  $scope.platforms = Platforms.all();
 
 
   $scope.callApi = function() {
@@ -50,15 +50,15 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('EditProfileCtrl', function($scope, EditProfile) {
-  $scope.edit_profile = EditProfile.all();
-  $scope.remove = function(user) {
-    EditProfile.remove(user);
+.controller('EditProfileCtrl', function($scope, Platforms) {
+  $scope.platforms = Platforms.all();
+  $scope.remove = function(platform) {
+    Platforms.remove(platform);
   }
 })
 
-.controller('UserDetailCtrl', function($scope, $stateParams, EditProfile) {
-  $scope.user = EditProfile.get($stateParams.userId);
+.controller('UserDetailCtrl', function($scope, $stateParams, Platforms) {
+  $scope.platform = Platforms.get($stateParams.platformId);
 })
 
 .controller('AccountCtrl', function($scope, auth, store, $state) {

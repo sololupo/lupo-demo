@@ -14,7 +14,7 @@
   <ion-content class="padding has-header has-subheader has-subheader-large" >
   	<ion-list type="list-inset">
 
-  		<ion-item class="item-avatar item-icon-right"  ng-repeat="user in edit_profile | filter: query" type="item-text-wrap" ng-href="#/tab/view-profile/{{user.id}}">
+  		<ion-item class="item-avatar item-icon-right"  ng-repeat="user in edit_profile | filter: query" type="item-text-wrap" ng-href="#/tab/view-profile/{{user.id}}"  on-hold="onHold({{user.code}})">
         <img ng-src="{{user.face}}">
         <h2>{{user.name}}</h2>
         <p>{{user.lastText}}</p>
