@@ -11,6 +11,8 @@ Connected to Colin's Facebook test App and Auth0's dev accounts for the rest.
 
 User data is stored at Auth0 currently - it is able to be integrated with Ruby On Rails, Node.js, MongoDB, etc.
 
+<img src="http://prntscr.com/8o3tt6" />
+
 
 # Login Using Auth0 + Ionic + API 
 
@@ -20,3 +22,4 @@ It's the basic [tabs](https://github.com/driftyco/ionic-starter-tabs) example fr
 This example uses [Refresh Tokens](https://github.com/auth0/auth0-angular/blob/master/docs/refreshToken.md) so that you will see the Login page only the first time you create the app and then never again.
 
 <img src="https://cloudup.com/iMmARAM4VJZ+" />
+
