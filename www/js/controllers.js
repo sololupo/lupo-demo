@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
       store.set('profile', profile);
       store.set('token', idToken);
       store.set('refreshToken', refreshToken);
-      $state.go('tab.dash');
+      $state.go('tab.view-profile');
     }, function(error) {
       console.log("There was an error logging in", error);
     });
@@ -31,12 +31,9 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('DashCtrl', function($scope, $http, Users) {
+.controller('ViewProfileCtrl', function($scope, $http, EditProfile) {
   
-  $scope.users = Users.all();
-  $scope.remove = function(user) {
-    Users.remove(user);
-  }
+  $scope.edit_profile = EditProfile.all();
 
 
   $scope.callApi = function() {
@@ -53,15 +50,15 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('UsersCtrl', function($scope, Users) {
-  $scope.users = Users.all();
+.controller('EditProfileCtrl', function($scope, EditProfile) {
+  $scope.edit_profile = EditProfile.all();
   $scope.remove = function(user) {
-    Users.remove(user);
+    EditProfile.remove(user);
   }
 })
 
-.controller('UserDetailCtrl', function($scope, $stateParams, Users) {
-  $scope.user = Users.get($stateParams.userId);
+.controller('UserDetailCtrl', function($scope, $stateParams, EditProfile) {
+  $scope.user = EditProfile.get($stateParams.userId);
 })
 
 .controller('AccountCtrl', function($scope, auth, store, $state) {

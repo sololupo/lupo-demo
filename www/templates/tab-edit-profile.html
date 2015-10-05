@@ -1,4 +1,4 @@
-<ion-view view-title="Users">
+<ion-view view-title="Edit Profile">
   <ion-nav-title>
     <span style="font-family:Tumbly,verdana;">
       lupo
@@ -6,7 +6,7 @@
   </ion-nav-title>
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in users" type="item-text-wrap" ng-href="#/tab/users/{{user.id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in edit_profile" type="item-text-wrap" ng-href="#/tab/edit-profile/{{user.id}}">
         <img ng-src="{{user.face}}">
         <h2>{{user.name}}</h2>
         <p>{{user.lastText}}</p>

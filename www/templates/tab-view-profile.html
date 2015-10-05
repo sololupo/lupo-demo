@@ -1,4 +1,4 @@
-<ion-view view-title="Dash">
+<ion-view view-title="View Profile" >
 	<ion-nav-title>
 		<span style="font-family:Tumbly,verdana;">
 			lupo
@@ -11,10 +11,10 @@
 		<img src="http://www.adweek.com/files/imagecache/node-detail/news_article/jack-ma-01-2014.jpg" alt="" style="margin:22px auto 10px auto;position:relative;height:100px;display:block;border-radius:50%;">
 	</div>
 
-  <ion-content class="padding has-header has-subheader has-subheader-large">
+  <ion-content class="padding has-header has-subheader has-subheader-large" >
   	<ion-list type="list-inset">
 
-  		<ion-item class="item-avatar item-icon-right"  ng-repeat="user in users | filter: query" type="item-text-wrap" ng-href="#/tab/dash/{{user.id}}">
+  		<ion-item class="item-avatar item-icon-right"  ng-repeat="user in edit_profile | filter: query" type="item-text-wrap" ng-href="#/tab/view-profile/{{user.id}}">
         <img ng-src="{{user.face}}">
         <h2>{{user.name}}</h2>
         <p>{{user.lastText}}</p>

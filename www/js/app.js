@@ -56,34 +56,45 @@ angular.module('starter', ['ionic',
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.view-profile', {
+    url: '/view-profile',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-view-profile': {
+        templateUrl: 'templates/tab-view-profile.html',
+        controller: 'ViewProfileCtrl'
       }
     }
   })
 
-  .state('tab.users', {
-      url: '/users',
-      views: {
-        'tab-users': {
-          templateUrl: 'templates/tab-users.html',
-          controller: 'UsersCtrl'
-        }
+  .state('tab.edit-profile', {
+    url: '/edit_profile',
+    views: {
+      'tab-edit-profile': {
+        templateUrl: 'templates/tab-edit-profile.html',
+        controller: 'EditProfileCtrl'
       }
-    })
-    .state('tab.user-detail', {
-      url: '/users/:userId',
-      views: {
-        'tab-users': {
-          templateUrl: 'templates/user-detail.html',
-          controller: 'UserDetailCtrl'
-        }
+    }
+  })
+
+  .state('tab.view-profile-user-detail', {
+    url: '/view-profile/:userId',
+    views: {
+      'tab-view-profile': {
+        templateUrl: 'templates/user-detail.html',
+        controller: 'UserDetailCtrl'
       }
-    })
+    }
+  })
+
+  .state('tab.edit-profile-user-detail', {
+    url: '/edit-profile/:userId',
+    views: {
+      'tab-edit-profile': {
+        templateUrl: 'templates/user-detail.html',
+        controller: 'UserDetailCtrl'
+      }
+    }
+  })
 
   .state('tab.account', {
     url: '/account',
@@ -96,7 +107,7 @@ angular.module('starter', ['ionic',
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/view-profile');
 
   // Configure Auth0
   authProvider.init({
