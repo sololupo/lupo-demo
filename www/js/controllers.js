@@ -31,13 +31,26 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('ViewProfileCtrl', function($scope, $http, Platforms) {
+.controller('ViewProfileCtrl', function($scope, $http, Platforms, $ionicActionSheet, $ionicPopup, $timeout) {
   
   $scope.platforms = Platforms.all();
 
-  $scope.onHold = function(code) {
-    cordova.plugins.clipboard.copy(code);
-  }
+
+  $scope.onHold = function(platform) {
+    $scope.code = platform.code
+    console.log('onHold');
+    console.log('code: ' + JSON.stringify($scope.code, null, 2));
+    cordova.plugins.clipboard.copy(code.text).then(function() {
+    var myPopup=$ionicPopup.show ({
+        template: '<span>Referral code copied</span>',
+        scope: $scope
+      })
+    });
+      $timeout(function() {
+        myPopup.close(); //close the popup after 1 seconds for some reason
+      }, 1000);
+  };
+
 
   $scope.callApi = function() {
     // Just call the API as you'd do using $http

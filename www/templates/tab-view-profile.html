@@ -14,7 +14,7 @@
   <ion-content class="padding has-header has-subheader has-subheader-large" >
   	<ion-list type="list-inset">
 
-  		<ion-item class="item-avatar item-icon-right"  ng-repeat="platform in platforms | filter: query" type="item-text-wrap" ng-href="#/tab/view-profile/{{platform.id}}"  on-hold="onHold({{platform.code}})">
+  		<ion-item class="item-avatar item-icon-right"  ng-repeat="platform in platforms | filter: query" type="item-text-wrap" ng-href="#/tab/view-profile/{{platform.id}}"  on-hold="onHold(platform)">
         <img ng-src="{{platform.face}}">
         <h2>{{platform.name}}</h2>
         <p>{{platform.lastText}}</p>
