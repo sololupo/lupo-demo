@@ -9,9 +9,9 @@
 
   <ion-content class="padding">
     <img ng-src="{{platform.face}}" style="width: 64px; height: 64px">
-    <h3 class="">
+    <a ng-click="copyCode(platform)" ng-href="#"><h3 class="">
       Referral Code: {{platform.code}}
-    </h3>
+    </h3></a>
     <p>
       {{platform.lastText}}
     </p>

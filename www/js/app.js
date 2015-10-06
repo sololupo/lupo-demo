@@ -10,7 +10,8 @@ angular.module('starter', ['ionic',
   'starter.services',
   'auth0',
   'angular-storage',
-  'angular-jwt'])
+  'angular-jwt',
+  'angular-clipboard'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,6 +30,9 @@ angular.module('starter', ['ionic',
 .config(function($ionicConfigProvider) {
     $ionicConfigProvider.tabs.position('bottom');
 })
+
+
+
 
 .config(function($stateProvider, $urlRouterProvider, authProvider,
   jwtInterceptorProvider, $httpProvider) {

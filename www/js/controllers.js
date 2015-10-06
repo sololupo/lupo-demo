@@ -35,22 +35,51 @@ angular.module('starter.controllers', [])
   
   $scope.platforms = Platforms.all();
 
+  $scope.copyText = function (text) {
+                    var node = createNode(text);
+                    $document[0].body.appendChild(node);
+                    copyNode(node);
+                    $document[0].body.removeChild(node);
+                };
 
-  $scope.onHold = function(platform) {
+  $scope.angularCopy = function (scope, text) {
+                    try {
+                        copyText(scope.text);
+                        if (scope.onCopied) {
+                            scope.onCopied();
+                            console.log('copied')
+                        }
+                    } catch (err) {
+                        if (scope.onError) {
+                            scope.onError({err: err});
+                            console.log('err')
+                        }
+                    }
+                };
+
+  $scope.copyCode = function(platform) {
     $scope.code = platform.code
+    scope = $scope
     console.log('onHold');
     console.log('code: ' + JSON.stringify($scope.code, null, 2));
-    cordova.plugins.clipboard.copy(code.text).then(function() {
-    var myPopup=$ionicPopup.show ({
-        template: '<span>Referral code copied</span>',
-        scope: $scope
-      })
-    });
-      $timeout(function() {
-        myPopup.close(); //close the popup after 1 seconds for some reason
-      }, 1000);
-  };
+    try {
+      cordova.plugins.clipboard.copy($scope.code.text);
+            $scope.angularCopy(scope, $scope.code.text)
 
+    }catch(e) {
+      $scope.angularCopy(scope, $scope.code.text)
+    }
+    var myPopup = $ionicPopup.show ({
+        template: '<center><h3>' + JSON.stringify($scope.code, null, 2) + '</h3><h4>Referral code copied</h4></center>',
+        scope: $scope
+    });
+
+    $timeout(function() {
+        myPopup.close(); //close the popup after 1 seconds for some reason
+    }, 1000);
+
+  };
+    
 
   $scope.callApi = function() {
     // Just call the API as you'd do using $http
@@ -73,8 +102,54 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('PlatformDetailCtrl', function($scope, $stateParams, Platforms) {
+.controller('PlatformDetailCtrl', function($scope, $stateParams, Platforms, $ionicPopup, $timeout) {
   $scope.platform = Platforms.get($stateParams.platformId);
+
+  $scope.copyText = function (text) {
+                    var node = createNode(text);
+                    $document[0].body.appendChild(node);
+                    copyNode(node);
+                    $document[0].body.removeChild(node);
+                };
+
+  $scope.angularCopy = function (scope, text) {
+                    try {
+                        copyText(scope.text);
+                        if (scope.onCopied) {
+                            scope.onCopied();
+                            console.log('copied')
+                        }
+                    } catch (err) {
+                        if (scope.onError) {
+                            scope.onError({err: err});
+                            console.log('err')
+                        }
+                    }
+                };
+
+  $scope.copyCode = function(platform) {
+    $scope.code = platform.code
+    scope = $scope
+    console.log('onHold');
+    console.log('code: ' + JSON.stringify($scope.code, null, 2));
+    try {
+      cordova.plugins.clipboard.copy($scope.code.text);
+            $scope.angularCopy(scope, $scope.code.text)
+
+    }catch(e) {
+      $scope.angularCopy(scope, $scope.code.text)
+    }
+    var myPopup = $ionicPopup.show ({
+        template: '<center><h3>' + JSON.stringify($scope.code, null, 2) + '</h3><h4>Referral code copied</h4></center>',
+        scope: $scope
+    });
+
+    $timeout(function() {
+        myPopup.close(); //close the popup after 1 seconds for some reason
+    }, 1000);
+
+  };
+    
 })
 
 .controller('AccountCtrl', function($scope, auth, store, $state) {
