@@ -138,7 +138,9 @@ angular.module('starter', ['ionic',
 
   $httpProvider.interceptors.push('jwtInterceptor');
 
-}).run(function($rootScope, auth, store) {
+})
+
+.run(function($rootScope, auth, store) {
   $rootScope.$on('$locationChangeStart', function() {
     if (!auth.isAuthenticated) {
       var token = store.get('token');

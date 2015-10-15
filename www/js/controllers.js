@@ -10,7 +10,8 @@ angular.module('starter.controllers', [])
       // This asks for the refresh token
       // So that the user never has to log in again
       authParams: {
-        scope: 'openid offline_access'
+        scope: 'openid offline_access',
+        device: 'Mobile device'
       }
     }, function(profile, idToken, accessToken, state, refreshToken) {
       store.set('profile', profile);
@@ -35,42 +36,20 @@ angular.module('starter.controllers', [])
   
   $scope.platforms = Platforms.all();
 
-  $scope.copyText = function (text) {
-                    var node = createNode(text);
-                    $document[0].body.appendChild(node);
-                    copyNode(node);
-                    $document[0].body.removeChild(node);
-                };
-
-  $scope.angularCopy = function (scope, text) {
-                    try {
-                        copyText(scope.text);
-                        if (scope.onCopied) {
-                            scope.onCopied();
-                            console.log('copied')
-                        }
-                    } catch (err) {
-                        if (scope.onError) {
-                            scope.onError({err: err});
-                            console.log('err')
-                        }
-                    }
-                };
-
   $scope.copyCode = function(platform) {
-    $scope.code = platform.code
-    scope = $scope
+    $scope.code = platform.code;
+    $scope.name = platform.name;
+    scope = $scope;
     console.log('onHold');
     console.log('code: ' + JSON.stringify($scope.code, null, 2));
     try {
       cordova.plugins.clipboard.copy($scope.code.text);
-            $scope.angularCopy(scope, $scope.code.text)
 
     }catch(e) {
-      $scope.angularCopy(scope, $scope.code.text)
+      //insert browser copy to clipboard action here
     }
     var myPopup = $ionicPopup.show ({
-        template: '<center><h3>' + JSON.stringify($scope.code, null, 2) + '</h3><h4>Referral code copied</h4></center>',
+        template: '<center><h3>' + JSON.stringify($scope.code, null, 2) + '</h3><h4>' + $scope.name + ' ' + 'referral code copied</h4></center>',
         scope: $scope
     });
 
@@ -79,7 +58,6 @@ angular.module('starter.controllers', [])
     }, 1000);
 
   };
-    
 
   $scope.callApi = function() {
     // Just call the API as you'd do using $http
@@ -105,27 +83,6 @@ angular.module('starter.controllers', [])
 .controller('PlatformDetailCtrl', function($scope, $stateParams, Platforms, $ionicPopup, $timeout) {
   $scope.platform = Platforms.get($stateParams.platformId);
 
-  $scope.copyText = function (text) {
-                    var node = createNode(text);
-                    $document[0].body.appendChild(node);
-                    copyNode(node);
-                    $document[0].body.removeChild(node);
-                };
-
-  $scope.angularCopy = function (scope, text) {
-                    try {
-                        copyText(scope.text);
-                        if (scope.onCopied) {
-                            scope.onCopied();
-                            console.log('copied')
-                        }
-                    } catch (err) {
-                        if (scope.onError) {
-                            scope.onError({err: err});
-                            console.log('err')
-                        }
-                    }
-                };
 
   $scope.copyCode = function(platform) {
     $scope.code = platform.code
@@ -134,10 +91,9 @@ angular.module('starter.controllers', [])
     console.log('code: ' + JSON.stringify($scope.code, null, 2));
     try {
       cordova.plugins.clipboard.copy($scope.code.text);
-            $scope.angularCopy(scope, $scope.code.text)
 
     }catch(e) {
-      $scope.angularCopy(scope, $scope.code.text)
+      //insert browser copy to clipboard action here
     }
     var myPopup = $ionicPopup.show ({
         template: '<center><h3>' + JSON.stringify($scope.code, null, 2) + '</h3><h4>Referral code copied</h4></center>',

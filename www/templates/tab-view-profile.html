@@ -5,27 +5,225 @@
 		</span>
 	</ion-nav-title>
 
-	<!-- Name and Avatar Subheader -->
+
+	<!-- Name and Avatar Subheader Bar -->
 	<div class="bar bar-subheader bar-subheader-large" style="height:auto" >
-		<h1 class="title" style="font-family:Tumbly">Jack Ma</h1><br>
+		<!-- Profile Name -->
+		<h1 class="title" style="font-family:Tumbly">Jack Ma</h1>
+
+	  <!-- Share Button -->
+	  <div class="buttons">
+	    <button class="button button-light">
+	    	<i class="icon ion-android-share"></i>
+	    	Share
+	    </button>
+	  </div>
+		<br>
+		<!-- Profile Photo -->
 		<img src="http://www.adweek.com/files/imagecache/node-detail/news_article/jack-ma-01-2014.jpg" alt="" style="margin:22px auto 10px auto;position:relative;height:100px;display:block;border-radius:50%;">
 	</div>
 
+<!-- Main Content -->
   <ion-content class="padding has-header has-subheader has-subheader-large" >
-  	<ion-list type="list-inset">
+			  		<!-- <div class="card">
+  			<ion-item class="item-text-wrap">
+					<h2>Jack's Referral Codes</h2>
+					<p >Click a platform below to open the referral link</p>
+				</ion-item>
+			</div> -->
 
-  		<ion-item class="item-avatar item-icon-right" ng-repeat="platform in platforms | filter: query" type="item-text-wrap" ng-href="#/tab/view-profile/{{platform.id}}"  on-hold="copyCode(platform)">
-        <img ng-src="{{platform.face}}">
-        <h2>{{platform.name}}</h2>
-        <p>{{platform.lastText}}</p>
-				<!--         <i class="icon ion-chevron-right icon-accessory"></i> -->        
- 				
- 				<span class="badge badge-calm">{{platform.code}}</span>
+	
+			<!-- Start Transportation Codes -->
+			<!-- Transportation Header -->
+			<ion-item class="item-divider item-light">
+				<h2 class="">
+					Transportation
+				</h2>
+			</ion-item>
 
-   			<!--      <ion-option-button class="button-assertive" ng-click="remove(platform)">
-          Delete
-        </ion-option-button> -->
-      </ion-item>
- 		</ion-list>
+
+
+		<!-- Transportation Codes -->
+
+		<ion-list type="card" class="card" ng-repeat="platform in platforms | 
+					filter: platform.category='transportation'">
+
+			<span 
+				>
+	  		<ion-item  class="item-avatar item-icon-right item-complex" 
+	  			type="item-text-wrap" ng-href="#/tab/view-profile/{{platform.id}}"  on-hold="copyCode(platform)">
+	        
+	        <img ng-src="{{platform.face}}">
+	        <h3>{{platform.name}}</h3>
+	        <p>{{platform.lastText}}</p>
+					<!--         <i class="icon ion-chevron-right icon-accessory"></i> -->        
+	 				
+	 				<span class="badge badge-light">{{platform.code}}</span>
+
+	   			<!--      <ion-option-button class="button-assertive" ng-click="remove(platform)">
+	          Delete
+	        </ion-option-button> -->
+
+	      </ion-item>
+
+				<!-- STATS START -->
+
+	      	<ion-item class="tabs tabs-secondary tabs-icon-left"
+		  			type="">
+						<a class="tab-item" >
+				      Rating: 4.9 Stars
+				    </a>
+				    <a class="tab-item" href="#">
+	 						<span class="">30 Trips</span>
+				    </a>
+				    <a class="tab-item" href="#">
+	 						<span class="">$3,000/week</span>
+				    </a>
+		  		</ion-item>
+	      <!-- END STATS -->
+	      <!-- TABS START -->
+
+	      	<ion-item class="tabs tabs-secondary tabs-icon-left " 
+		  			type="item-text-wrap">
+						<a class="tab-item" on-tap="copyCode(platform)" href="#">
+				      <i class="icon ion-ios-copy"></i>
+				      Copy Code
+				    </a>
+				    <a class="tab-item" href="#">
+				      <i class="icon ion-chatbox"></i>
+				      Ask Jack a Question
+				    </a>
+				    <a class="tab-item" href="#">
+				      <i class="icon ion-share"></i>
+				      Get App
+				    </a>
+		  		</ion-item>
+	      <!-- END TABS -->
+  		</span>
+
+  	</ion-list>
+  	<!-- END TRANSPORTATION CODES -->
+
+		<!-- START DELIVERY CODES -->
+			<!-- Delivery Header -->
+		<ion-list type="card" class="card" >
+			<ion-item class="item-divider">
+				<h2 class="">
+					Delivery
+				</h2>
+			</ion-item>
+		</ion-list>
+
+			<!-- Delivery Codes -->
+			<ion-list type="card" class="card" ng-repeat="platform in platforms | 
+					filter: platform.category='delivery'">
+  		
+	  		<ion-item class="item-avatar item-icon-right" 
+	  			type="item-text-wrap" ng-href="#/tab/view-profile/{{platform.id}}"  on-hold="copyCode(platform)">
+	        
+	        <img ng-src="{{platform.face}}">
+	        <h2>{{platform.name}}</h2>
+	        <p>{{platform.lastText}}</p>
+					<!--         <i class="icon ion-chevron-right icon-accessory"></i> -->        
+	 				
+	 				<span class="badge badge-calm">{{platform.code}}</span>
+
+	   			<!--      <ion-option-button class="button-assertive" ng-click="remove(platform)">
+	          Delete
+	        </ion-option-button> -->
+
+	      </ion-item>
+
+
+	      <!-- TABS START -->
+
+	      	<ion-item class="tabs tabs-secondary tabs-icon-left"
+		  			type="item-text-wrap">
+						<a class="tab-item" on-tap="copyCode(platform)" href="#">
+				      <i class="icon ion-ios-copy"></i>
+				      Copy Code
+				    </a>
+				    <a class="tab-item" href="#">
+				      <i class="icon ion-chatbox"></i>
+				      Ask Jack a Question
+				    </a>
+				    <a class="tab-item" href="#">
+				      <i class="icon ion-share"></i>
+				      Get App
+				    </a>
+		  		</ion-item>
+	      <!-- END TABS -->
+  		</ion-list>
+
+  		<!-- END DELIVERY CODES -->
+
+  		<!-- START HOSPITALITY CODES -->
+  		<!-- Hospitality Header -->
+			<ion-item class="item-divider">
+				<h2 class="">
+					Hospitality
+				</h2>
+			</ion-item>
+			
+			<!-- Hospitality Codes -->
+  		<ion-list type="card" class="card" ng-repeat="platform in platforms | 
+					filter: platform.category='hospitality'"> 
+
+	  		<ion-item class="item-avatar item-icon-right" 
+	  			type="item-text-wrap" ng-href="#/tab/view-profile/{{platform.id}}"  on-hold="copyCode(platform)">
+	        
+	        <img ng-src="{{platform.face}}">
+	        <h2>{{platform.name}}</h2>
+	        <p>{{platform.lastText}}</p>
+					<!--         <i class="icon ion-chevron-right icon-accessory"></i> -->        
+	 				
+	 				<span class="badge badge-calm">{{platform.code}}</span>
+
+	   			<!--      <ion-option-button class="button-assertive" ng-click="remove(platform)">
+	          Delete
+	        </ion-option-button> -->
+
+	      </ion-item>
+
+
+	      <!-- STATS START -->
+
+	      	<ion-item class="tabs tabs-secondary tabs-icon-left"
+		  			type="">
+						<a class="tab-item" >
+				      Rating: 4.9 Stars
+				    </a>
+				    <a class="tab-item" href="#">
+	 						<span class="">30 Trips</span>
+				    </a>
+				    <a class="tab-item" href="#">
+	 						<span class="">$3,000/week</span>
+				    </a>
+		  		</ion-item>
+	      <!-- END STATS -->
+
+	      <!-- TABS START -->
+
+	      	<ion-item class="tabs tabs-secondary tabs-icon-left"
+		  			type="item-text-wrap">
+						<a class="tab-item" on-tap="copyCode(platform)" href="#">
+				      <i class="icon ion-ios-copy"></i>
+				      Copy Code
+				    </a>
+				    <a class="tab-item" href="#">
+				      <i class="icon ion-chatbox"></i>
+				      Ask Jack a Question
+				    </a>
+				    <a class="tab-item" href="#">
+				      <i class="icon ion-share"></i>
+				      Get App
+				    </a>
+		  		</ion-item>
+	      <!-- END TABS -->
+  		</ion-list>
+
+  		<!-- END HOSPITALITY CODES -->
+
+ 	
   </ion-content>
 </ion-view>

@@ -1,10 +1,10 @@
 /* Empty. Add your own CSS if you like */
 
 .has-subheader-large {
-  top: 198px; }
+  top: 208px; }
 
 .has-header.has-subheader-large.has-tabs-top {
-  top: 247px; }
+  top: 257px; }
 
 .nav-title {
 	font-family: Tumbly;
@@ -16,4 +16,16 @@
 
 .item .badge {
 	font-weight:normal;
+}
+
+a  {
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
+	color: inherit;
+}
+
+.popup .popup-body {
+    overflow: hidden !important;
 }
