@@ -101,7 +101,7 @@ angular.module('starter.services', [])
       return null;
     }
   };
-});
+})
 
 
 .factory('HarryPlatforms', function() {

@@ -33,11 +33,16 @@ angular.module('starter', ['ionic',
     //overrides Android striped tabs
 })
 
+.config(["$locationProvider", function($locationProvider) {
+  $locationProvider.html5Mode(true);
+}])
 
 
 
 .config(function($stateProvider, $urlRouterProvider, authProvider,
-  jwtInterceptorProvider, $httpProvider) {
+  jwtInterceptorProvider, $httpProvider, $locationProvider) {
+
+    $locationProvider.html5Mode(true);
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
