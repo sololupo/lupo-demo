@@ -81,6 +81,55 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('ViewHarryProfileCtrl', function($scope, $http, HarryPlatforms, $ionicActionSheet,$ionicScrollDelegate, $ionicPopup, $timeout) {
+  
+  $scope.platforms = HarryPlatforms.all();
+
+  $scope.category_query="transportation"
+
+  // Scrolling to top on click
+  $scope.scrollTop = function() {
+    $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop();
+  };
+
+
+  $scope.copyCode = function(platform) {
+    $scope.code = platform.code;
+    $scope.name = platform.name;
+    scope = $scope;
+    console.log('onHold');
+    console.log('code: ' + JSON.stringify($scope.code, null, 2));
+    try {
+      cordova.plugins.clipboard.copy($scope.code.text);
+
+    }catch(e) {
+      //insert browser copy to clipboard action here
+    }
+    var myPopup = $ionicPopup.show ({
+        template: '<center><h3>' + JSON.stringify($scope.code, null, 2) + '</h3><h4>' + $scope.name + ' ' + 'referral code copied</h4></center>',
+        scope: $scope
+    });
+
+    $timeout(function() {
+        myPopup.close(); //close the popup after 1 seconds for some reason
+    }, 1000);
+
+  };
+
+  $scope.callApi = function() {
+    // Just call the API as you'd do using $http
+    $http({
+      url: 'http://localhost:3001/secured/ping',
+      method: 'GET'
+    }).then(function() {
+      alert("We got the secured data successfully");
+    }, function() {
+      alert("Please download the API seed so that you can call it.");
+    });
+  };
+
+})
+
 .controller('EditProfileCtrl', function($scope, Platforms) {
   $scope.platforms = Platforms.all();
   $scope.remove = function(platform) {

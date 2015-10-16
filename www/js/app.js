@@ -72,6 +72,16 @@ angular.module('starter', ['ionic',
     }
   })
 
+  .state('tab.view-profile.harry', {
+    url: '/harry',
+    views: {
+      'tab-view-profile': {
+        templateUrl: 'templates/tab-view-profile.html',
+        controller: 'ViewHarryProfileCtrl'
+      }
+    }
+  })
+
   .state('tab.edit-profile', {
     url: '/edit_profile',
     views: {
