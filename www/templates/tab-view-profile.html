@@ -35,7 +35,7 @@
 		<div class="radio-bar">
 					
 		  <label class="item item-radio item-radio-left">
-		    <input type="radio" ng-model="category_query" value="transportation" name="group">
+		    <input type="radio" ng-model="category_query" value="transportation" name="group" ng-click="scrollTop()">
 		    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'transportation'}">
 		     	<i class="icon item-large ion-model-s" ></i>
 		     	
@@ -44,7 +44,7 @@
 
 		  </label>
 		  <label class="item item-radio item-radio-middle">
-		    <input type="radio" ng-model="category_query" value="delivery" name="group">
+		    <input type="radio" ng-model="category_query" value="delivery" name="group" ng-click="scrollTop()">
 		    <div class="item"  ng-class="{'item-dark item-background-grey': category_query == 'delivery'}">
 		     	<i class="icon item-large ion-android-bicycle" ></i>
 		     	
@@ -52,7 +52,7 @@
 		    </div>
 		  </label>
 		  <label class="item item-radio item-radio-right">
-		    <input type="radio" ng-model="category_query" value="hospitality" name="group"></input>
+		    <input type="radio" ng-model="category_query" value="hospitality" name="group" ng-click="scrollTop()"></input>
 		    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'hospitality'}">
 		     	<i class="icon item-large ion-ios-home"></i>
 		     	
@@ -69,7 +69,7 @@
 	</div>
 
 <!-- Main Content -->
-  <ion-content header-shrink scroll-event-interval="5" class="padding has-header has-subheader has-subheader-large " >
+  <ion-content header-shrink scroll-event-interval="5" class="padding has-header has-subheader has-subheader-large " delegate-handle="mainScroll" >
 			
 			<!-- Start  Codes -->
 			<!--  Header -->

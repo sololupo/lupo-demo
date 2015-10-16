@@ -32,11 +32,17 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('ViewProfileCtrl', function($scope, $http, Platforms, $ionicActionSheet, $ionicPopup, $timeout) {
+.controller('ViewProfileCtrl', function($scope, $http, Platforms, $ionicActionSheet,$ionicScrollDelegate, $ionicPopup, $timeout) {
   
   $scope.platforms = Platforms.all();
 
   $scope.category_query="transportation"
+
+  // Scrolling to top on click
+  $scope.scrollTop = function() {
+    $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop();
+  };
+
 
   $scope.copyCode = function(platform) {
     $scope.code = platform.code;
