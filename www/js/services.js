@@ -75,7 +75,7 @@ angular.module('starter.services', [])
     lastText: 'Drivers set price and ETA',
     face: 'http://static1.squarespace.com/static/52b0b3c3e4b01516437313c2/t/52b6551fe4b02301e6480d4f/1387681058123/Sidecar-Logo.jpg',
     code: 'HARRY86',
-    category: 'delivery',
+    category: 'transportation',
   },  {
     id: 8,
     name: 'Postmates',
