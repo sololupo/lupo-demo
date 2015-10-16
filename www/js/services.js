@@ -10,35 +10,51 @@ angular.module('starter.services', [])
     lastText: 'Your private driver',
     face: 'http://seattle.startupweekend.org/files/2012/01/new-uber-logo.jpg',
     code: 'UBERJACK',
-    category: 'transportation'
+    category: 'transportation',
+    work_bonus: 'Up to $500',
+    trips: 421,
+    pay_weekly: "1,100",
+    star_rating: 4.9
   }, {
     id: 1,
     name: 'Lyft',
     lastText: 'Your friend with a car',
     face: 'http://cmxhub.com/wp-content/uploads/2014/10/lyft.png',
     code: 'LYFTJACK',
-    category: 'transportation'
+    category: 'transportation',
+    work_bonus: 'Up to $750',
+    trips: 211,
+    pay_weekly: "1,200",
+    star_rating: 5.0
   }, {
     id: 2,
     name: 'Airbnb',
     lastText: 'Rent from local hosts',
     face: 'http://www.connorgp.com/wp-content/uploads/2014/01/airbnb_square-new_logo.jpg',
     code: 'AIRJACK',
-    category: 'hospitality'
+    category: 'hospitality',
+    trips: 30,
+    pay_weekly: "1,300",
+    star_rating: 4.8
   }, {
     id: 3,
     name: 'Instacart',
-    lastText: 'Groceries delivered to your door',
+    lastText: 'Groceries delivered',
     face: 'https://d1qb2nb5cznatu.cloudfront.net/startups/i/131716-ec50ba6b52bf0edc889bc3a6dae17493-medium_jpg.jpg',
     code: 'INSTAJACK',
-    category: 'delivery'
+    category: 'delivery',
+    work_bonus: 'Up to $200',
+    trips: 30,
+    pay_weekly: "950",
+    star_rating: 4.9
   }, {
     id: 4,
     name: 'Chariot',
     lastText: 'Your commute. Solved.',
     face: 'https://www.ridechariot.com/static/images/logo1024.png',
-    code: 'CHARJACK',
-    category: 'transportation'
+    code: 'LUPO',
+    category: 'transportation',
+    promo: 'Recommended: Get 3 Free Chariot Rides'
   }];
 
   return {

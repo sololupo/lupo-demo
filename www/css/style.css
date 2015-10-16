@@ -1,10 +1,10 @@
 /* Empty. Add your own CSS if you like */
 
 .has-subheader-large {
-  top: 208px; }
+  top: 268px; }
 
 .has-header.has-subheader-large.has-tabs-top {
-  top: 257px; }
+  top: 317px; }
 
 .nav-title {
 	font-family: Tumbly;
@@ -32,4 +32,100 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
 
 .no-margin {
 	margin: 0 0 0 0;
+}
+
+.center {
+	text-align: center;
+}
+
+
+
+.tabs-striped {
+	color: #F0F0F0;
+}
+
+.calm-lighten
+{
+	backgroud-color:#A6D5FA;
+}
+
+.stats-label {
+	font-weight: bold;
+	font-size: 9pt;
+}
+
+.radio-bar {
+	display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%; }
+  .radio-bar.radio-bar-inline {
+    display: block;
+    width: auto;
+    *zoom: 1; }
+    .radio-bar.radio-bar-inline:before, .radio-bar.radio-bar-inline:after {
+      display: table;
+      content: "";
+      line-height: 0; }
+    .radio-bar.radio-bar-inline:after {
+      clear: both; }
+    .radio-bar.radio-bar-inline > .item-radio {
+      width: auto;
+      display: inline-block;
+      float: left; }
+
+.radio-bar > .item-radio {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: block;
+  overflow: hidden;
+  padding: 0 ;
+  width: 0;
+  border-width: 0px 0px 1px 1px;
+  border-radius: 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+  .radio-bar > .item-radio:before, .radio-bar > .item-radio .icon:before {
+    line-height: 20px; }
+  .radio-bar > .item-radio:first-child {
+    border-radius: 2px 0px 0px 2px; }
+  .radio-bar > .item-radio:last-child {
+    border-right-width: 1px;
+    border-radius: 0px 2px 2px 0px; }
+}
+
+.item-radio .item-content {
+  /* give some room to the right for the checkmark icon */
+   position: relative;
+  z-index: 2;
+  padding: 0;
+  border: none;
+  background-color: white; 
+}
+
+
+.item-large {
+	font-size: 20px !important;
+}
+
+.card {
+	padding-bottom: 5px!important;
+	margin-bottom: 5px!important;
+	padding-top: 5px!important;
+	margin-top: 5px!important;
+
 }

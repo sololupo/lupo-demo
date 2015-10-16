@@ -36,6 +36,8 @@ angular.module('starter.controllers', [])
   
   $scope.platforms = Platforms.all();
 
+  $scope.category_query="transportation"
+
   $scope.copyCode = function(platform) {
     $scope.code = platform.code;
     $scope.name = platform.name;
