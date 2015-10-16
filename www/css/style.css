@@ -67,6 +67,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  border-radius: 40%!important;
   width: 100%; }
   .radio-bar.radio-bar-inline {
     display: block;
@@ -90,15 +91,25 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  border-radius: 0!important;
   display: block;
   overflow: hidden;
   padding: 0 ;
   width: 0;
   border-width: 0px 0px 1px 1px;
-  border-radius: 0;
+
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap; }
+  .radio-bar > .item-radio.item-radio-left{
+  	  border-radius: 10% 0% 0 10%!important;
+  }
+  .radio-bar > .item-radio.item-radio-middle{
+  	  border-radius: 0% 0% 0 0%!important;
+  }
+  .radio-bar > .item-radio.item-radio-right{
+  	  border-radius: 0% 10% 10% 0%!important;
+  }
   .radio-bar > .item-radio:before, .radio-bar > .item-radio .icon:before {
     line-height: 20px; }
   .radio-bar > .item-radio:first-child {
@@ -128,4 +139,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
 	padding-top: 5px!important;
 	margin-top: 5px!important;
 
+}
+
+.item-background-grey {
+	background-color: #616161!important;
+}
+
+.whole-container {
+	max-width: 800px!important;
+	display:block!important;
+	margin:auto!important;
 }

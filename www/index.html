@@ -66,14 +66,14 @@
     <script src="js/tabSlideBox.js"></script>
 
   </head>
-  <body ng-app="starter">
+  <body ng-app="starter" >
 
-    
+    <div class="whole-container">
 
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-light">
+    <ion-nav-bar class="bar-light whole-container">
       <ion-nav-back-button class="button-icon ion-ios-arrow-back">
       </ion-nav-back-button>
     </ion-nav-bar>
@@ -82,8 +82,10 @@
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
-    <ion-nav-view class="slide-left-right">
+    <ion-nav-view class="slide-left-right whole-container">
 
     </ion-nav-view>
+
+    </div>
   </body>
 </html>
