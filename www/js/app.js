@@ -8,6 +8,7 @@
 angular.module('starter', ['ionic', 
   'starter.controllers', 
   'starter.services',
+  'starter.harryservices',
   'auth0',
   'angular-storage',
   'angular-jwt',
