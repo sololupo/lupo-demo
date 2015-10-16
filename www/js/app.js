@@ -119,8 +119,8 @@ angular.module('starter', ['ionic',
   authProvider.init({
     domain: AUTH0_DOMAIN,
     clientID: AUTH0_CLIENT_ID,
-    // loginState: 'login'
-    loginState: 'tab.view-profile'
+    loginState: 'login'
+    // loginState: 'tab.view-profile'
   });
 
   jwtInterceptorProvider.tokenGetter = function(store, jwtHelper, auth) {
