@@ -195,7 +195,7 @@ angular.module('starter', ['ionic',
         } else {
           y = 0;
         }
-        console.log(scrollTop);
+        // console.log(scrollTop); // this was broken by fixing the touchlaptop issue
 
         ionic.requestAnimationFrame(function() {
           fadeAmt = 1 - (y / headerHeight);

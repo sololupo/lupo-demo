@@ -39,7 +39,7 @@
 		    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'transportation'}">
 		     	<i class="icon item-large ion-model-s" ></i>
 		     	
-		     	<span style="font-size:14px"> Rideshare</span>
+		     	<span class="item-medium"> Rideshare</span>
 		    </div>
 
 		  </label>
@@ -48,7 +48,7 @@
 		    <div class="item"  ng-class="{'item-dark item-background-grey': category_query == 'delivery'}">
 		     	<i class="icon item-large ion-android-bicycle" ></i>
 		     	
-		     	<span style="font-size:14px"> Delivery</span>
+		     	<span class="item-medium"> Delivery</span>
 		    </div>
 		  </label>
 		  <label class="item item-radio item-radio-right">
@@ -56,7 +56,7 @@
 		    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'hospitality'}">
 		     	<i class="icon item-large ion-ios-home"></i>
 		     	
-		     	<span style="font-size:14px"> Hospitality</span>
+		     	<span class="item-medium"> Hospitality</span>
 		    </div>
 		  </label><!-- 
 		  			<ion-radio  ng-model="category_query" value="transportation" class="button">
@@ -69,7 +69,7 @@
 	</div>
 
 <!-- Main Content -->
-  <ion-content header-shrink scroll-event-interval="5" class="padding has-header has-subheader has-subheader-large" >
+  <ion-content header-shrink scroll-event-interval="5" class="padding has-header has-subheader has-subheader-large " >
 			
 			<!-- Start  Codes -->
 			<!--  Header -->
@@ -85,7 +85,7 @@
 
 		<!-- Codes Results -->
 
-		<ion-list type="card" class="card no-bottom-margin slide-left-right" 
+		<ion-list type="card" class="card no-bottom-margin" 
 			ng-repeat="platform in platforms | 
 								 filter: platform.category=category_query">
 
@@ -102,7 +102,7 @@
   			</ion-item>
 			<!-- End Promoted Code -->
 
-	  		<ion-item  class="item-avatar item-icon-right item-complex" 
+	  		<ion-item  class="item-avatar item-icon-right item-complex animate bounceInLeft" 
 	  			type="item-text-wrap" ng-href="#/tab/view-profile/{{platform.id}}"  on-hold="copyCode(platform)">
 	        
 	        <img ng-src="{{platform.face}}">

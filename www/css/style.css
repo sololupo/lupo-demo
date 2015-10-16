@@ -133,6 +133,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
 	font-size: 20px !important;
 }
 
+.item-medium {
+	font-size: 14px !important;
+}
+
 .card {
 	padding-bottom: 5px!important;
 	margin-bottom: 5px!important;

@@ -4727,78 +4727,12 @@ ionic.views.Scroll = ionic.views.View.inherit({
 
     if ('ontouchstart' in window) {
       // Touch Events
-      // container.addEventListener("touchstart", self.touchStart, false);
-      // if(self.options.preventDefault) container.addEventListener("touchmove", self.touchMoveBubble, false);
-      // document.addEventListener("touchmove", self.touchMove, false);
-      // document.addEventListener("touchend", self.touchEnd, false);
-      // document.addEventListener("touchcancel", self.touchEnd, false);
+      container.addEventListener("touchstart", self.touchStart, false);
+      if(self.options.preventDefault) container.addEventListener("touchmove", self.touchMoveBubble, false);
+      document.addEventListener("touchmove", self.touchMove, false);
+      document.addEventListener("touchend", self.touchEnd, false);
+      document.addEventListener("touchcancel", self.touchEnd, false);
 
-      // Mouse Events
-      var mousedown = false;
-
-      self.mouseDown = function(e) {
-        if ( ionic.tap.ignoreScrollStart(e) || e.target.tagName === 'SELECT' ) {
-          return;
-        }
-        self.doTouchStart(getEventTouches(e), e.timeStamp);
-
-        if ( !ionic.tap.isTextInput(e.target) ) {
-          e.preventDefault();
-        }
-        mousedown = true;
-      };
-
-      self.mouseMove = function(e) {
-        if (!mousedown || (!mousedown && e.defaultPrevented)) {
-          return;
-        }
-
-        self.doTouchMove(getEventTouches(e), e.timeStamp);
-
-        mousedown = true;
-      };
-
-      self.mouseMoveBubble = function(e) {
-        if (mousedown && self.options.preventDefault) {
-          e.preventDefault();
-        }
-      };
-
-      self.mouseUp = function(e) {
-        if (!mousedown) {
-          return;
-        }
-
-        self.doTouchEnd(e.timeStamp);
-
-        mousedown = false;
-      };
-
-      self.mouseWheel = ionic.animationFrameThrottle(function(e) {
-        var scrollParent = ionic.DomUtil.getParentOrSelfWithClass(e.target, 'ionic-scroll');
-        if (scrollParent === self.__container) {
-
-          self.hintResize();
-          self.scrollBy(
-            (e.wheelDeltaX || e.deltaX || 0) / self.options.wheelDampen,
-            (-e.wheelDeltaY || e.deltaY || 0) / self.options.wheelDampen
-          );
-
-          self.__fadeScrollbars('in');
-          clearTimeout(self.__wheelHideBarTimeout);
-          self.__wheelHideBarTimeout = setTimeout(function() {
-            self.__fadeScrollbars('out');
-          }, 100);
-        }
-      });
-
-      container.addEventListener("mousedown", self.mouseDown, false);
-      if(self.options.preventDefault) container.addEventListener("mousemove", self.mouseMoveBubble, false);
-      document.addEventListener("mousemove", self.mouseMove, false);
-      document.addEventListener("mouseup", self.mouseUp, false);
-      document.addEventListener('mousewheel', self.mouseWheel, false);
-      document.addEventListener('wheel', self.mouseWheel, false);
-    
     } else if (window.navigator.pointerEnabled) {
       // Pointer Events
       container.addEventListener("pointerdown", self.touchStart, false);
