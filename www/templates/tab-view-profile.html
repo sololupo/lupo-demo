@@ -1,8 +1,9 @@
 <ion-view view-title="View Profile" >
 	<ion-nav-title>
-		<span style="font-family:Tumbly,verdana;">
+		<!-- 		<span style="font-family:Tumbly,Poiret One,Dosis,Roboto,verdana;">
 			lupo
-		</span>
+		</span> -->
+		<img src="/img/thinlupo.jpg" alt="" class="" style="height:25px;width:auto;vertical-align:middle">
 	</ion-nav-title>
 	  
 <!-- Nav button if you wanted one -->
@@ -16,7 +17,7 @@
 	<!-- Name and Avatar Subheader Bar -->
 	<div class="bar bar-subheader bar-subheader-large" style="height:auto" >
 		<!-- Profile Name -->
-		<h1 class="title" style="font-family:Tumbly">Jack Ma</h1>
+		<h1 class="title" style="font-family:Tumbly,Poiret One, Dosis">Jack Ma</h1>
 
 	  <!-- Share Button -->
 	  <div class="buttons">
@@ -37,6 +38,8 @@
 		    <input type="radio" ng-model="category_query" value="transportation" name="group">
 		    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'transportation'}">
 		     	<i class="icon item-large ion-model-s" ></i>
+		     	
+		     	<span style="font-size:14px"> Rideshare</span>
 		    </div>
 
 		  </label>
@@ -44,12 +47,16 @@
 		    <input type="radio" ng-model="category_query" value="delivery" name="group">
 		    <div class="item"  ng-class="{'item-dark item-background-grey': category_query == 'delivery'}">
 		     	<i class="icon item-large ion-android-bicycle" ></i>
+		     	
+		     	<span style="font-size:14px"> Delivery</span>
 		    </div>
 		  </label>
 		  <label class="item item-radio item-radio-right">
 		    <input type="radio" ng-model="category_query" value="hospitality" name="group"></input>
 		    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'hospitality'}">
 		     	<i class="icon item-large ion-ios-home"></i>
+		     	
+		     	<span style="font-size:14px"> Hospitality</span>
 		    </div>
 		  </label><!-- 
 		  			<ion-radio  ng-model="category_query" value="transportation" class="button">

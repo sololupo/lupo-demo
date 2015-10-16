@@ -1,13 +1,13 @@
 /* Empty. Add your own CSS if you like */
 
 .has-subheader-large {
-  top: 268px; }
+  top: 270px; }
 
 .has-header.has-subheader-large.has-tabs-top {
-  top: 317px; }
+  top: 319px; }
 
 .nav-title {
-	font-family: Tumbly;
+	font-family: Tumbly, Poiret One, Roboto;
 }
 
 .item p {
@@ -102,13 +102,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
   text-overflow: ellipsis;
   white-space: nowrap; }
   .radio-bar > .item-radio.item-radio-left{
-  	  border-radius: 10% 0% 0 10%!important;
+  	  border-radius: 0% 0% 0 0%!important;
   }
   .radio-bar > .item-radio.item-radio-middle{
   	  border-radius: 0% 0% 0 0%!important;
   }
   .radio-bar > .item-radio.item-radio-right{
-  	  border-radius: 0% 10% 10% 0%!important;
+  	  border-radius: 0% 0% 0% 0%!important;
   }
   .radio-bar > .item-radio:before, .radio-bar > .item-radio .icon:before {
     line-height: 20px; }
@@ -142,7 +142,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
 }
 
 .item-background-grey {
-	background-color: #616161!important;
+/*	background-color: #616161!important;*/
+	background-color: #424242!important;
 }
 
 .whole-container {

@@ -55,7 +55,22 @@ angular.module('starter.services', [])
     code: 'LUPO',
     category: 'transportation',
     promo: 'Recommended: Get 3 Free Chariot Rides'
-  }];
+  }, {
+    id: 5,
+    name: 'Breeze',
+    lastText: 'Lease rideshare cars',
+    face: 'https://d1qb2nb5cznatu.cloudfront.net/startups/i/477922-863014758c953ca7fe9209e708b8cd73-medium_jpg.jpg?buster=1409619663',
+    code: 'JACKBREEZE',
+    category: 'transportation'
+  },  {
+    id: 6,
+    name: 'DoorDash',
+    lastText: 'Delightful food delivery',
+    face: 'https://upload.wikimedia.org/wikipedia/en/d/df/Doordash_logo.png',
+    code: 'LUPO',
+    category: 'delivery',
+    
+  } ];
 
   return {
     all: function() {
