@@ -75,7 +75,7 @@ angular.module('starter', ['ionic',
   .state('tab.view-profile.harry', {
     url: '/harry',
     views: {
-      'tab-view-profile': {
+      'tab-view-profile-harry': {
         templateUrl: 'templates/tab-view-profile.html',
         controller: 'ViewHarryProfileCtrl'
       }
