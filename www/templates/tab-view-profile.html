@@ -1,13 +1,17 @@
-<ion-view view-title="View Profile" >
-	<ion-nav-title>
+<ion-view view-title="" >
+
+	<!-- Lupo logo on top -->
+	<ion-nav-title class="nav-bar-title">
 		<!-- 		<span style="font-family:Tumbly,Poiret One,Dosis,Roboto,verdana;">
 			lupo
 		</span> -->
-		<img src="/img/thinlupo.jpg" alt="" class="" style="height:25px;width:auto;vertical-align:middle">
+		<div class="">
+			<img src="/img/thinlupo.jpg" alt="" class="" style="height:25px;width:auto;vertical-align:middle">
+		</div>
 	</ion-nav-title>
 	  
-<!-- Nav button if you wanted one -->
-	  <ion-nav-buttons side="secondary">
+	<!-- Nav button if you wanted one -->
+	  <ion-nav-buttons side="secondary" class="">
       <button class="button" ng-click="doSomething()">
         <i class="icon ion-ios-search"></i>
       </button>
@@ -15,7 +19,7 @@
 
 
 	<!-- Name and Avatar Subheader Bar -->
-	<div class="bar  bar-subheader bar-subheader-large" style="height:auto" >
+	<div class="bar bar-header bar-subheader bar-subheader-large" style="height:auto" >
 		<!-- Profile Name -->
 		<h1 class="title" style="font-family:Tumbly,Poiret One, Dosis">Harry C.</h1>
 
@@ -69,12 +73,13 @@
 	</div>
 
 <!-- Main Content -->
-  <ion-content header-shrink sub-header-shrink scroll-event-interval="5" class="padding has-header has-subheader has-subheader-large " delegate-handle="mainScroll" >
-			
+  <ion-content header-shrink scroll-event-interval="5" class="padding has-header has-subheader-large" has-bouncing="false" delegate-handle="mainScroll" >
+			<div class="has-subheader has-subheader-large">
+			</div>
 			<!-- Start  Codes -->
 			<!--  Header -->
 			<a name="transportation"></a>
-			<ion-item  class="no-margin item-divider item-light item-icon-left">
+			<ion-item  class="no-margin item-divider item-light item-icon-left ">
 				<h2 class="">
 					<i class="icon ion-model-s" ng-model="category_query" ng-class="{'ion-model-s': category_query == 'transportation', 'ion-android-bicycle': category_query == 'delivery', 'ion-ios-home': category_query == 'hospitality' }"></i>
 					{{category_query | uppercase}}
@@ -103,7 +108,9 @@
 			<!-- End Promoted Code -->
 
 	  		<ion-item  class="item-avatar item-icon-right item-complex animate slideInLeft" 
-	  			type="item-text-wrap" ui-sref="/tab/view-profile/{{platform.id}}"  on-hold="copyCode(platform)">
+	  			type="item-text-wrap" 
+	  			href=""  
+	  			on-hold="copyCode(platform)">
 	        
 	        <img ng-src="{{platform.face}}">
 	        <h2>{{platform.name}}</h2>
@@ -169,6 +176,7 @@
   	</ion-list>
   	<!-- END  CODES -->
 
+		 <div style="height: 49px;"></div>
  	
   </ion-content>
 </ion-view>

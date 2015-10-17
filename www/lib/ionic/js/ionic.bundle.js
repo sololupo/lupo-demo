@@ -4733,7 +4733,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       document.addEventListener("touchend", self.touchEnd, false);
       document.addEventListener("touchcancel", self.touchEnd, false);
 
-      // Mouse Events (added as well - TAG CHANGEDMOUSE)
+      // Mouse Events (added as well - TAG CHANGEDMOUSE COLIN)
       var mousedown = false;
 
       self.mouseDown = function(e) {

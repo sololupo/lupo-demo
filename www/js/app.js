@@ -12,7 +12,8 @@ angular.module('starter', ['ionic',
   'auth0',
   'angular-storage',
   'angular-jwt',
-  'angular-clipboard'])
+  'angular-clipboard',
+  'ionic.ion.headerShrink'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -169,127 +170,5 @@ angular.module('starter', ['ionic',
   });
 })
 
-// Shrink the header
-.directive('headerShrink', function($document) {
-  var fadeAmt;
-
-  var shrink = function(header, content, amt, max) {
-    amt = Math.min(max, amt);
-    fadeAmt = 1 - amt / max;
-    ionic.requestAnimationFrame(function() {
-      header.style[ionic.CSS.TRANSFORM] = 'translate3d(0, -' + amt + 'px, 0)';
-      for(var i = 0, j = header.children.length; i < j; i++) {
-        header.children[i].style.opacity = fadeAmt;
-      }
-    });
-  };
-
-  return {
-    restrict: 'A',
-    link: function($scope, $element, $attr) {
-      var starty = $scope.$eval($attr.headerShrink) || 0;
-      var shrinkAmt;
-
-      var amt;
-
-      var y = 0;
-      var prevY = 0;
-      var scrollDelay = 0.4;
-
-      var fadeAmt;
-      
-      var header = $document[0].body.querySelector('.bar-header');
-      var headerHeight = header.offsetHeight;
-      // add subheader too
-      var subheader = $document[0].body.querySelector('.bar-subheader');
-      var subheaderHeight = subheader.offsetHeight;
-
-      
-      function onScroll(e) {
-        var scrollTop = e.detail.scrollTop;
-
-        if(scrollTop >= 0) {
-          y = Math.min(headerHeight / scrollDelay, Math.max(0, y + scrollTop - prevY));
-        } else {
-          y = 0;
-        }
-        // console.log(scrollTop); // this was broken by fixing the touchlaptop issue
-
-        ionic.requestAnimationFrame(function() {
-          fadeAmt = 1 - (y / headerHeight);
-          header.style[ionic.CSS.TRANSFORM] = 'translate3d(0, ' + -y + 'px, 0)';
-          for(var i = 0, j = header.children.length; i < j; i++) {
-            header.children[i].style.opacity = fadeAmt;
-          }
-        });
-
-        prevY = scrollTop;
-      }
-
-      $element.bind('scroll', onScroll);
-    }
-  }
-})
-
-
-// Shrink Subheader
-.directive('subHeaderShrink', function($document) {
-  var fadeAmt;
-
-  var shrink = function(subheader, content, amt, max) {
-    amt = Math.min(max, amt);
-    fadeAmt = 1 - amt / max;
-    ionic.requestAnimationFrame(function() {
-      subheader.style[ionic.CSS.TRANSFORM] = 'translate3d(0, -' + amt + 'px, 0)';
-      for(var i = 0, j = subheader.children.length; i < j; i++) {
-        subheader.children[i].style.opacity = fadeAmt;
-      }
-    });
-  };
-
-  return {
-    restrict: 'A',
-    link: function($scope, $element, $attr) {
-      var starty = $scope.$eval($attr.subheaderShrink) || 0;
-      var shrinkAmt;
-
-      var amt;
-
-      var y = 0;
-      var prevY = 0;
-      var scrollDelay = 0.4;
-
-      var fadeAmt;
-      
-      // add subheader too
-      var subheader = $document[0].body.querySelector('.bar-subheader');
-      var subheaderHeight = subheader.offsetHeight;
-
-      
-      function onScroll(e) {
-        var scrollTop = e.detail.scrollTop;
-
-        if(scrollTop >= 0) {
-          y = Math.min(subheaderHeight / scrollDelay, Math.max(0, y + scrollTop - prevY));
-        } else {
-          y = 0;
-        }
-        // console.log(scrollTop); // this was broken by fixing the touchlaptop issue
-
-        ionic.requestAnimationFrame(function() {
-          fadeAmt = 1 - (y / subheaderHeight);
-          header.style[ionic.CSS.TRANSFORM] = 'translate3d(0, ' + -y + 'px, 0)';
-          for(var i = 0, j = subheader.children.length; i < j; i++) {
-            subheader.children[i].style.opacity = fadeAmt;
-          }
-        });
-
-        prevY = scrollTop;
-      }
-
-      $element.bind('scroll', onScroll);
-    }
-  }
-})
 
 ;

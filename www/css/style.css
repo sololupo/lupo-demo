@@ -1,10 +1,15 @@
 /* Empty. Add your own CSS if you like */
 
-.has-subheader-large {
-  top: 270px; }
+div.has-subheader-large {
+ /* top: 270px; //removed because of shrinking header - moved to empty ion-item*/
+ height: 220px;
+ bottom: 0px;
+}
 
-.has-header.has-subheader-large.has-tabs-top {
-  top: 319px; }
+ion-content.has-header.has-subheader-large {
+  /*top: 319px; */
+  bottom: 0;
+}
 
 .nav-title {
 	font-family: Tumbly, Poiret One, Roboto;
@@ -155,3 +160,4 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
 	display:block!important;
 	margin:auto!important;
 }
+
