@@ -36,6 +36,7 @@ angular.module('starter.controllers', [])
   
   $scope.platforms = Platforms.all();
 
+  // Set default selection
   $scope.category_query="transportation"
 
   // Scrolling to top on click
