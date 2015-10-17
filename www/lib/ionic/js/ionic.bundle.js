@@ -4727,13 +4727,13 @@ ionic.views.Scroll = ionic.views.View.inherit({
 
     if ('ontouchstart' in window) {
       // Touch Events
-      // container.addEventListener("touchstart", self.touchStart, false);
-      // if(self.options.preventDefault) container.addEventListener("touchmove", self.touchMoveBubble, false);
-      // document.addEventListener("touchmove", self.touchMove, false);
-      // document.addEventListener("touchend", self.touchEnd, false);
-      // document.addEventListener("touchcancel", self.touchEnd, false);
+      container.addEventListener("touchstart", self.touchStart, false);
+      if(self.options.preventDefault) container.addEventListener("touchmove", self.touchMoveBubble, false);
+      document.addEventListener("touchmove", self.touchMove, false);
+      document.addEventListener("touchend", self.touchEnd, false);
+      document.addEventListener("touchcancel", self.touchEnd, false);
 
-      // Mouse Events
+      // Mouse Events (added as well - TAG CHANGEDMOUSE)
       var mousedown = false;
 
       self.mouseDown = function(e) {
