@@ -19,14 +19,17 @@ $dark:                            #444 !default;
 // Material Color Swatch
 $light:                           #FFFFFF !default;
 $stable:                          #F5F5F5 !default;
-$positive:                        #3F51B5;
+$positive:                        #3F51B5 !default;
 $calm:                            #2196F3 !default;
 $balanced:                        #4CAF50 !default;
-$energized:                       #FFC107;
-$assertive:                       #F44336;
-$royal:                           #673AB7;
-$dark:                            #212121 !default;
-$base-background-color: 					#FAFAFA; 
+// $energized:                       #FFC107 !default;
+$energized:												#616161 !default;
+$assertive:                       #F44336 !default;
+$royal:                           #673AB7 !default;
+// $dark:                            #212121 !default;
+// Header grey
+$dark: 														#424242 !default;
+$base-background-color: 					#FAFAFA !default; 
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;

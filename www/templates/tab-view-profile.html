@@ -1,75 +1,63 @@
-<ion-view view-title="" >
+<ion-view>
 
-	<!-- Lupo logo on top -->
-	<ion-nav-title class="nav-bar-title">
-		<!-- 		<span style="font-family:Tumbly,Poiret One,Dosis,Roboto,verdana;">
-			lupo
-		</span> -->
-		<div style="">
-			<img src="/img/thinlupo.jpg" alt="" class="" style="height:25px;width:auto;vertical-align:middle;">
-		</div>
-	</ion-nav-title>
-	  
-	<!-- Nav button if you wanted one -->
-	  <ion-nav-buttons side="secondary" class="">
-      <button class="button" ng-click="doSomething()">
-        <i class="icon ion-ios-search"></i>
-      </button>
-    </ion-nav-buttons>
+
 
 
 	<!-- Name and Avatar Subheader Bar -->
-	<div class="bar bar-header bar-subheader bar-subheader-large" style="height:auto" >
-		<!-- Profile Name -->
-		<h1 class="title" style="font-family:Tumbly,Poiret One, Dosis">Harry C.</h1>
-
-	  <!-- Share Button -->
-	  <div class="buttons">
-	    <button class="button button-light">
-	    	<i class="icon ion-android-share" ng-href="mailto:"></i>
-	    	Share
-	    </button>
-	  </div>
-		<br>
-		<!-- Profile Photo -->
-		<img src="https://media.licdn.com/media/AAEAAQAAAAAAAANNAAAAJDhjZGU0MTlkLWQzMjEtNDFjMi05N2ZiLTBlMTI4MWUxMjZmMw.jpg" alt="" style="margin:22px auto 10px auto;position:relative;height:100px;display:block;border-radius:50%;">
+	<div class="bar bar-header bar-subheader" >
+		<div class="bar bar-energized">
+			<!-- Profile Name -->
+			<h1 class="title" style="font-family:Tumbly,Poiret One, Dosis">Harry C.</h1>
 	
-
-		<!-- tabs -->
-		<div class="radio-bar">
-					
-		  <label class="item item-radio item-radio-left">
-		    <input type="radio" ng-model="category_query" value="transportation" name="group" ng-click="scrollTop()">
-		    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'transportation'}">
-		     	<i class="icon item-large ion-model-s" ></i>
-		     	
-		     	<span class="item-medium"> Rideshare</span>
-		    </div>
-
-		  </label>
-		  <label class="item item-radio item-radio-middle">
-		    <input type="radio" ng-model="category_query" value="delivery" name="group" ng-click="scrollTop()">
-		    <div class="item"  ng-class="{'item-dark item-background-grey': category_query == 'delivery'}">
-		     	<i class="icon item-large ion-android-bicycle" ></i>
-		     	
-		     	<span class="item-medium"> Delivery</span>
-		    </div>
-		  </label>
-		  <label class="item item-radio item-radio-right">
-		    <input type="radio" ng-model="category_query" value="hospitality" name="group" ng-click="scrollTop()"></input>
-		    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'hospitality'}">
-		     	<i class="icon item-large ion-ios-home"></i>
-		     	
-		     	<span class="item-medium"> Hospitality</span>
-		    </div>
-		  </label><!-- 
-		  			<ion-radio  ng-model="category_query" value="transportation" class="button">
-		  				<i class="icon ion-model-s"></i>
-		  			</ion-radio>
-		  			<ion-radio ng-model="category_query" value="delivery" class="button">Delivery</ion-radio>
-		  			<ion-radio ng-model="category_query" value="hospitality"  class="button">Hospitality</ion-radio> -->
+		  <!-- Share Button -->
+		  <div class="buttons">
+		    <button class="button button-light">
+		    	<i class="icon ion-android-share" ng-href="mailto:"></i>
+		    	Share
+		    </button>
+		  </div>
 		</div>
+			
+		<div class="bar bar-light bar-subheader background-light bar-subheader-3">
+			<!-- Profile Photo -->
+			<img src="https://media.licdn.com/media/AAEAAQAAAAAAAANNAAAAJDhjZGU0MTlkLWQzMjEtNDFjMi05N2ZiLTBlMTI4MWUxMjZmMw.jpg" alt="" class="profile-photo">
+		
 
+			<!-- tabs -->
+			<div class="radio-bar" style="margin:0!important;padding:0!important;">
+						
+			  <label class="item item-radio item-radio-left">
+			    <input type="radio" ng-model="category_query" value="transportation" name="group" ng-click="scrollTop()">
+			    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'transportation'}">
+			     	<i class="icon item-large ion-model-s" ></i>
+			     	
+			     	<span class="item-medium"> Rideshare</span>
+			    </div>
+
+			  </label>
+			  <label class="item item-radio item-radio-middle">
+			    <input type="radio" ng-model="category_query" value="delivery" name="group" ng-click="scrollTop()">
+			    <div class="item"  ng-class="{'item-dark item-background-grey': category_query == 'delivery'}">
+			     	<i class="icon item-large ion-android-bicycle" ></i>
+			     	
+			     	<span class="item-medium"> Delivery</span>
+			    </div>
+			  </label>
+			  <label class="item item-radio item-radio-right">
+			    <input type="radio" ng-model="category_query" value="hospitality" name="group" ng-click="scrollTop()"></input>
+			    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'hospitality'}">
+			     	<i class="icon item-large ion-ios-home"></i>
+			     	
+			     	<span class="item-medium"> Hospitality</span>
+			    </div>
+			  </label><!-- 
+			  			<ion-radio  ng-model="category_query" value="transportation" class="button">
+			  				<i class="icon ion-model-s"></i>
+			  			</ion-radio>
+			  			<ion-radio ng-model="category_query" value="delivery" class="button">Delivery</ion-radio>
+			  			<ion-radio ng-model="category_query" value="hospitality"  class="button">Hospitality</ion-radio> -->
+			</div>
+		</div>
 	</div>
 
 <!-- Main Content -->

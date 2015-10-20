@@ -1,10 +1,31 @@
 /* Empty. Add your own CSS if you like */
 
+div.bar-subheader {
+  /*height:auto;*/
+  top:38px;
+}
+
 div.has-subheader-large {
  /* top: 270px; //removed because of shrinking header - moved to empty ion-item*/
  height: 220px;
  bottom: 0px;
 }
+
+img.profile-photo {
+  margin: 10px auto 10px auto;
+  display: block;  /*centers along with margin: auto*/
+  position: relative;
+  height: 100px;
+  border-radius: 50%;"
+}
+
+div.bar-subheader-3 {
+  top:50px !important;
+  padding-top: 0px !important;
+  background-color: #ffffff !important;
+  height:auto !important;
+}
+
 
 ion-content.has-header.has-subheader-large {
   /*top: 319px; */
@@ -73,7 +94,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
   -ms-flex: 1;
   flex: 1;
   border-radius: 40%!important;
-  width: 100%; }
+  width: 100%; 
+  margin:0!important;
+  padding:0!important;}
+
   .radio-bar.radio-bar-inline {
     display: block;
     width: auto;
@@ -99,9 +123,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
   border-radius: 0!important;
   display: block;
   overflow: hidden;
-  padding: 0 ;
-  width: 0;
-  border-width: 0px 0px 1px 1px;
+
+  border-width: 0px 0px 0px 0px;
 
   text-align: center;
   text-overflow: ellipsis;
@@ -111,22 +134,26 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
   }
   .radio-bar > .item-radio.item-radio-middle{
   	  border-radius: 0% 0% 0 0%!important;
+      border-left-width: 1px;
+      border-right-width: 1px;
   }
   .radio-bar > .item-radio.item-radio-right{
   	  border-radius: 0% 0% 0% 0%!important;
+      border-left-width: 1px;
+
   }
   .radio-bar > .item-radio:before, .radio-bar > .item-radio .icon:before {
     line-height: 20px; }
   .radio-bar > .item-radio:first-child {
     border-radius: 2px 0px 0px 2px; }
   .radio-bar > .item-radio:last-child {
-    border-right-width: 1px;
+
     border-radius: 0px 2px 2px 0px; }
 }
 
 .item-radio .item-content {
   /* give some room to the right for the checkmark icon */
-   position: relative;
+  position: relative;
   z-index: 2;
   padding: 0;
   border: none;

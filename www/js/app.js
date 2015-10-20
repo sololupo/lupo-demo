@@ -9,9 +9,6 @@ angular.module('starter', ['ionic',
   'starter.controllers', 
   'starter.services',
   'starter.harryservices',
-  'auth0',
-  'angular-storage',
-  'angular-jwt',
   'angular-clipboard',
   'ionic.ion.headerShrink'])
 
@@ -38,8 +35,7 @@ angular.module('starter', ['ionic',
 
 
 
-.config(function($stateProvider, $urlRouterProvider, authProvider,
-  jwtInterceptorProvider, $httpProvider, $locationProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
 
@@ -130,44 +126,46 @@ angular.module('starter', ['ionic',
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/view-profile');
 
-  // Configure Auth0
-  authProvider.init({
-    domain: AUTH0_DOMAIN,
-    clientID: AUTH0_CLIENT_ID,
-    // loginState: 'login'
-    loginState: 'tab.view-profile'
-  });
+  // // Configure Auth0
+  // authProvider.init({
+  //   domain: AUTH0_DOMAIN,
+  //   clientID: AUTH0_CLIENT_ID,
+  //   // loginState: 'login'
+  //   loginState: 'tab.view-profile'
+  // });
 
-  jwtInterceptorProvider.tokenGetter = function(store, jwtHelper, auth) {
-    var idToken = store.get('token');
-    var refreshToken = store.get('refreshToken');
-    if (!idToken || !refreshToken) {
-      return null;
-    }
-    if (jwtHelper.isTokenExpired(idToken)) {
-      return auth.refreshIdToken(refreshToken).then(function(idToken) {
-        store.set('token', idToken);
-        return idToken;
-      });
-    } else {
-      return idToken;
-    }
-  }
+//   jwtInterceptorProvider.tokenGetter = function(store, jwtHelper, auth) {
+//     var idToken = store.get('token');
+//     var refreshToken = store.get('refreshToken');
+//     if (!idToken || !refreshToken) {
+//       return null;
+//     }
+//     if (jwtHelper.isTokenExpired(idToken)) {
+//       return auth.refreshIdToken(refreshToken).then(function(idToken) {
+//         store.set('token', idToken);
+//         return idToken;
+//       });
+//     } else {
+//       return idToken;
+//     }
+//   }
 
-  $httpProvider.interceptors.push('jwtInterceptor');
+//   $httpProvider.interceptors.push('jwtInterceptor');
 
-})
+// })
 
-.run(function($rootScope, auth, store) {
-  $rootScope.$on('$locationChangeStart', function() {
-    if (!auth.isAuthenticated) {
-      var token = store.get('token');
-      if (token) {
-        auth.authenticate(store.get('profile'), token);
-      }
-    }
+// .run(function($rootScope, auth, store) {
+//   $rootScope.$on('$locationChangeStart', function() {
+//     if (!auth.isAuthenticated) {
+//       var token = store.get('token');
+//       if (token) {
+//         auth.authenticate(store.get('profile'), token);
+//       }
+//     }
 
-  });
+//   });
+
+
 })
 
 

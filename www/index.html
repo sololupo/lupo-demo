@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <!-- Full screen from Apple springboard -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title></title>
 
     <!-- Base for locationProvider HTML5 mode -->
@@ -21,13 +21,11 @@
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
 
-    <!-- Custom Styles CSS -->
-    <link href="css/style.css" rel="stylesheet">
-
     <!-- Animation Animate.css -->
     <link href="css/animate.css" rel="stylesheet">
 
-
+    <!-- Custom Styles CSS -->
+    <link href="css/style.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
@@ -53,16 +51,17 @@
 
 
     <!-- Latest Auth0 patch release from CDN -->
-    <script src="https://cdn.auth0.com/js/lock-7.min.js"></script>
-    <!-- Local: --> 
+<!--     <script src="https://cdn.auth0.com/js/lock-7.min.js"></script>
+     -->    <!-- Local: --> 
     <!-- <script src="lib/auth0-lock/build/auth0-lock.js"></script> -->    
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <script src="lib/auth0-angular/build/auth0-angular.js"></script>
+    <!-- <script src="lib/auth0-angular/build/auth0-angular.js"></script> 
     <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
     <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
+    -->
 
     <!-- Angular Clipboard -->
     <script src="js/angular-clipboard.js"></script>
@@ -74,22 +73,18 @@
 
 
     <!-- cordova script (this will be a 404 during development) -->
-<!--     <script src="../cordova.js"></script>
- -->
+    <script src="../cordova.js"></script>
+
 
 
 
     <!-- your app's js -->
-    <script src="js/auth0-variables.js"></script>
+    <!-- <script src="js/auth0-variables.js"></script> -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
     <script src="js/harry.js"></script>
 
-
-    <!-- Tabbed SlideBox -->
-    <link href="css/tabSlideBox.css" rel="stylesheet">
-    <script src="js/tabSlideBox.js"></script>
 
   </head>
   <body ng-app="starter">
@@ -99,16 +94,40 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-light whole-container">
+    <ion-nav-bar class="bar-dark whole-container">
       <ion-nav-back-button class="button-icon ion-ios-arrow-back">
       </ion-nav-back-button>
+
+      <!-- Lupo logo on top -->
+      <ion-nav-title class="nav-bar-title">
+        <!--    <span style="font-family:Tumbly,Poiret One,Dosis,Roboto,verdana;">
+          lupo
+        </span> -->
+        <div style="">
+          <img src="/img/lupo-sm-white-vector.png" alt="" class="" style="height:25px;width:auto;vertical-align:middle;">
+        </div>
+      </ion-nav-title>
+        
+      <!-- Nav button if you wanted one -->
+      <ion-nav-buttons side="secondary" class="">
+        <button class="button button-clear" ng-click="doSomething()">
+          <i class="icon ion-ios-search"></i>
+        </button>
+      </ion-nav-buttons>
+
     </ion-nav-bar>
+
+        
+
+
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
     <ion-nav-view class="slide-left-right whole-container">
+
+
 
     </ion-nav-view>
 
