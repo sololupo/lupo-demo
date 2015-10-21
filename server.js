@@ -1,5 +1,6 @@
 var express = require('express'),
 app = express();
+
 app.use(express.static('www'));
 // extra for html5
 
@@ -9,9 +10,9 @@ app.use("/css", express.static(__dirname + "/www/css"));
 app.use("/templates", express.static(__dirname + "/www/templates"));
 
 // end extra
-app.get('/*', function(req, res, next) {
+app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
-    res.sendFile(__dirname + '/www/index.html');
+    res.sendFile('www/index.html', { root: __dirname });
 });
 
 app.set('port', process.env.PORT || 5000);

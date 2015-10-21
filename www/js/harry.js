@@ -61,7 +61,7 @@ angular.module('starter.harryservices', [])
     name: 'Breeze',
     lastText: 'Lease rideshare cars',
     face: 'https://d1qb2nb5cznatu.cloudfront.net/startups/i/477922-863014758c953ca7fe9209e708b8cd73-medium_jpg.jpg?buster=1409619663',
-    code: 'JACKBREEZE',
+    code: 'HARRYBREEZE',
     category: 'transportation'
   },  {
     id: 6,
