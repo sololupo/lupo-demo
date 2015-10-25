@@ -29,7 +29,7 @@ angular.module('starter', ['ionic',
 .config(function($ionicConfigProvider) {
     $ionicConfigProvider.tabs.position('bottom');
     $ionicConfigProvider.tabs.style('standard'); 
-    //overrides Android striped tabs
+    //overrides Android striped tabs which mess up styling
 })
 
 
