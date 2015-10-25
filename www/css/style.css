@@ -33,7 +33,8 @@ ion-content.has-header.has-subheader-large {
 }
 
 .nav-title {
-	font-family: Tumbly, Poiret One, Roboto;
+	font-family: Tumbly, Lato, Poiret One, Roboto;
+  font-weight: 100;
 }
 
 .item p {
