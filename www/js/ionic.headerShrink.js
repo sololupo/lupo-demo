@@ -2,6 +2,7 @@ angular.module('ionic.ion.headerShrink', [])
 
 .directive('headerShrink', function($document) {
     var fadeAmt;
+    var subheaderFadeAmt;
 
     var shrink = function(tabs, tabs_amt, cachedHeader, subHeader, header, amt, dir) {
       ionic.requestAnimationFrame(function() { 
