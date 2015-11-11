@@ -24,33 +24,37 @@
 		
 
 			<!-- tabs -->
-			<div class="radio-bar" style="margin:0!important;padding:0!important;">
+			<div class="radio-bar" >
 						
 			  <label class="item item-radio item-radio-left">
 			    <input type="radio" ng-model="category_query" value="transportation" name="group" ng-click="scrollTop()">
-			    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'transportation'}">
+			    <div class="item" ng-class="{'item-dark': category_query == 'transportation'}">
 			     	<i class="icon item-large ion-model-s" ></i>
 			     	
-			     	<span class="item-medium"> Rideshare</span>
+			     	<span class="item-small"> Rideshare</span>
 			    </div>
 
 			  </label>
 			  <label class="item item-radio item-radio-middle">
 			    <input type="radio" ng-model="category_query" value="delivery" name="group" ng-click="scrollTop()">
-			    <div class="item"  ng-class="{'item-dark item-background-grey': category_query == 'delivery'}">
+			    <div class="item"  ng-class="{'item-dark': category_query == 'delivery'}">
 			     	<i class="icon item-large ion-android-bicycle" ></i>
 			     	
-			     	<span class="item-medium"> Delivery</span>
+			     	<span class="item-small"> Delivery</span>
 			    </div>
+
+
+
 			  </label>
 			  <label class="item item-radio item-radio-right">
 			    <input type="radio" ng-model="category_query" value="hospitality" name="group" ng-click="scrollTop()"></input>
-			    <div class="item" ng-class="{'item-dark item-background-grey': category_query == 'hospitality'}">
+			    <div class="item" ng-class="{'item-dark': category_query == 'hospitality'}">
 			     	<i class="icon item-large ion-ios-home"></i>
 			     	
-			     	<span class="item-medium"> Hospitality</span>
+			     	<span class="item-small"> Hospitality</span>
 			    </div>
-			  </label><!-- 
+			  </label>
+			  <!-- 
 			  			<ion-radio  ng-model="category_query" value="transportation" class="button">
 			  				<i class="icon ion-model-s"></i>
 			  			</ion-radio>

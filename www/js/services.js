@@ -11,7 +11,6 @@ angular.module('starter.services', [])
     face: 'http://seattle.startupweekend.org/files/2012/01/new-uber-logo.jpg',
     code: '3E3DG',
     category: 'transportation',
-    work_bonus: 'Up to $500',
     trips: 421,
     pay_weekly: "1,100",
     star_rating: 4.9
@@ -22,7 +21,6 @@ angular.module('starter.services', [])
     face: 'http://cmxhub.com/wp-content/uploads/2014/10/lyft.png',
     code: 'HARRY757',
     category: 'transportation',
-    work_bonus: 'Up to $750',
     trips: 211,
     pay_weekly: "1,200",
     star_rating: 5.0
@@ -43,7 +41,6 @@ angular.module('starter.services', [])
     face: 'https://d1qb2nb5cznatu.cloudfront.net/startups/i/131716-ec50ba6b52bf0edc889bc3a6dae17493-medium_jpg.jpg',
     code: 'HCAMPBELL1231',
     category: 'delivery',
-    work_bonus: 'Up to $200',
     trips: 30,
     pay_weekly: "950",
     star_rating: 4.9

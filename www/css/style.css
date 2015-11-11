@@ -166,9 +166,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
 	font-size: 20px !important;
 }
 
-.item-medium {
-	font-size: 14px !important;
+.item-small {
+	font-size: 10px !important;
 }
+
+
 
 .card {
 	padding-bottom: 5px!important;
@@ -189,3 +191,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
 	margin:auto!important;
 }
 
+.twitter {
+  background-color: #55acee !important;
+  color: #fff !important;
+}
+
+.linkedin {
+  background-color: #0077b5 !important;
+  color: #fff !important;
+}

@@ -5,6 +5,7 @@ node_modules/
 platforms/
 plugins/
 js/auth0-variables.js
+config.js
 
 npm-debug.log
 

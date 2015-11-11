@@ -32,7 +32,7 @@ angular.module('starter.harryservices', [])
     name: 'Airbnb',
     lastText: 'Rent from local hosts',
     face: 'http://www.connorgp.com/wp-content/uploads/2014/01/airbnb_square-new_logo.jpg',
-    code: 'AIRJACK',
+    code: 'AIRHARRY',
     category: 'hospitality',
     trips: 30,
     pay_weekly: "1,300",

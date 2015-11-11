@@ -10,7 +10,8 @@ angular.module('starter', ['ionic',
   'starter.services',
   'starter.harryservices',
   'angular-clipboard',
-  'ionic.ion.headerShrink'])
+  'ionic.ion.headerShrink',
+  'satellizer'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -34,10 +35,35 @@ angular.module('starter', ['ionic',
 
 
 
+// States
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $authProvider, $locationProvider) {
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
-
+  // html5 mode without hashbang #!
   $locationProvider.html5Mode(true);
+
+  // Skip state if Logged In
+  function skipIfLoggedIn($q, $auth, $state) {
+    var deferred = $q.defer();
+    if ($auth.isAuthenticated()) {
+      deferred.reject();
+      $state.go('tab.view-profile');
+    } else {
+      deferred.resolve();
+    }
+    return deferred.promise;
+  }
+
+  // Redirect to Login if Login Required and not Authenticated
+  function loginRequired($q, $state, $auth) {
+    var deferred = $q.defer();
+    if ($auth.isAuthenticated()) {
+      deferred.resolve();
+    } else {
+      $state.go('login');
+    }
+    return deferred.promise;
+  }
+
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -47,7 +73,32 @@ angular.module('starter', ['ionic',
   .state('login', {
     url: "/login",
     templateUrl: "templates/login.html",
-    controller: 'LoginCtrl'
+    controller: 'LoginCtrl',
+    data: {
+      requireLogin: false,
+      skipIfLoggedin: true
+    }
+  })
+
+  .state('signup', {
+    url: "/signup",
+    templateUrl: "templates/signup.html",
+    controller: 'SignupCtrl',
+    data: {
+      requireLogin: false,
+      skipIfLoggedin: true
+    }
+
+  })
+
+  .state('logout', {
+    url: '/logout',
+    template: null,
+    controller: 'LogoutCtrl',
+    data: {
+      requireLogin: true,
+      skipIfLoggedin: false
+    }
   })
 
   // setup an abstract state for the tabs directive
@@ -56,39 +107,49 @@ angular.module('starter', ['ionic',
     abstract: true,
     templateUrl: "templates/tabs.html",
     data: {
-      requiresLogin: false
+      requireLogin: true,
+      skipIfLoggedin: false
     }
   })
 
   // Each tab has its own nav history stack:
 
-  .state('tab.view-profile', {
-    url: '/view-profile',
-    views: {
-      'tab-view-profile': {
-        templateUrl: 'templates/tab-view-profile.html',
-        controller: 'ViewProfileCtrl'
-      }
-    }
-  })
 
   .state('tab.view-profile.harry', {
     url: '/harry',
     views: {
       'tab-view-profile-harry': {
         templateUrl: 'templates/tab-view-profile.html',
-        controller: 'ViewHarryProfileCtrl'
+        controller: 'ViewHarryProfileCtrl',
+        data: {
+          requireLogin: true
+        }
       }
     }
   })
 
+  .state('tab.view-profile', {
+    url: '/view-profile',
+    views: {
+      'tab-view-profile': {
+        templateUrl: 'templates/tab-view-profile.html',
+        controller: 'ViewProfileCtrl',
+        data: {
+          requireLogin: true
+        }
+      }
+    }
+  })
 
   .state('tab.edit-profile', {
-    url: '/edit_profile',
+    url: '/edit-profile',
     views: {
       'tab-edit-profile': {
         templateUrl: 'templates/tab-edit-profile.html',
-        controller: 'EditProfileCtrl'
+        controller: 'EditProfileCtrl',
+        data: {
+          requireLogin: true
+        }
       }
     }
   })
@@ -98,7 +159,10 @@ angular.module('starter', ['ionic',
     views: {
       'tab-view-profile': {
         templateUrl: 'templates/platform-detail.html',
-        controller: 'PlatformDetailCtrl'
+        controller: 'PlatformDetailCtrl',
+        data: {
+          requireLogin: true
+        }
       }
     }
   })
@@ -108,7 +172,10 @@ angular.module('starter', ['ionic',
     views: {
       'tab-edit-profile': {
         templateUrl: 'templates/platform-detail.html',
-        controller: 'PlatformDetailCtrl'
+        controller: 'PlatformDetailCtrl',
+        data: {
+          requireLogin: true
+        }
       }
     }
   })
@@ -118,55 +185,107 @@ angular.module('starter', ['ionic',
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+        controller: 'AccountCtrl',
+        data: {
+          requireLogin: true
+        }
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/view-profile');
+$urlRouterProvider.otherwise( function($injector, $location) {
+            var $state = $injector.get("$state");
+            $state.go("tab.view-profile");
+        });
 
-  // // Configure Auth0
-  // authProvider.init({
-  //   domain: AUTH0_DOMAIN,
-  //   clientID: AUTH0_CLIENT_ID,
-  //   // loginState: 'login'
-  //   loginState: 'tab.view-profile'
-  // });
+//End States
 
-//   jwtInterceptorProvider.tokenGetter = function(store, jwtHelper, auth) {
-//     var idToken = store.get('token');
-//     var refreshToken = store.get('refreshToken');
-//     if (!idToken || !refreshToken) {
-//       return null;
-//     }
-//     if (jwtHelper.isTokenExpired(idToken)) {
-//       return auth.refreshIdToken(refreshToken).then(function(idToken) {
-//         store.set('token', idToken);
-//         return idToken;
-//       });
-//     } else {
-//       return idToken;
-//     }
-//   }
+// Start AuthProvider
+  // OAuth popup should expand to full screen with no location bar/toolbar.
+  var commonConfig = {
+    popupOptions: {
+      location: 'no',
+      toolbar: 'no',
+      width: window.screen.width,
+      height: window.screen.height
+    }
+  };
 
-//   $httpProvider.interceptors.push('jwtInterceptor');
+  if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
+    $authProvider.cordova = true;
+    commonConfig.redirectUri = 'http://localhost/';
+  } 
 
-// })
+  $authProvider.facebook(angular.extend({}, commonConfig, {
+    clientId: '1628664424039631',
+    responseType: 'token',
+    scope: ['email','public_profile','user_friends' ]
+  }));
 
-// .run(function($rootScope, auth, store) {
-//   $rootScope.$on('$locationChangeStart', function() {
-//     if (!auth.isAuthenticated) {
-//       var token = store.get('token');
-//       if (token) {
-//         auth.authenticate(store.get('profile'), token);
-//       }
-//     }
+  $authProvider.twitter(angular.extend({}, commonConfig, {
+    url: 'http://localhost:3000/auth/twitter'
+  }));
 
-//   });
+  $authProvider.google(angular.extend({}, commonConfig, {
+    clientId: '631036554609-v5hm2amv4pvico3asfi97f54sc51ji4o.apps.googleusercontent.com',
+    url: 'http://localhost:3000/auth/google'
+  }));
 
-
+  
 })
+// End AuthProvider
 
+// START REDIRECT IF NOT LOGGED IN
+
+.factory('RouteValidator', ['$rootScope', '$auth', '$state', '$location', function ($rootScope, $auth, $state, $location) {
+    return {
+        private: private
+    };
+
+    function private() {
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+            var requireLogin = toState.data.requireLogin;
+            var skipIfLoggedIn = toState.data.skipIfLoggedIn;
+
+
+                        // Redirect to view profile if authenticated and marked skipIfLoggedin
+            if (skipIfLoggedIn && $auth.isAuthenticated()) {
+                event.preventDefault();
+                $state.go('tab.view-profile');
+                return;
+            } 
+            else
+            // Redirect to Login if not authenticated & state requires login
+            if (requireLogin && !$auth.isAuthenticated()) {
+              if (toState.name === 'login'){
+                return;
+              } else {
+                event.preventDefault();
+                $state.go('login');
+                return;
+              }
+            }
+
+
+        });
+
+        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+            var public = ['login', 'signup'];
+            if ($auth.isAuthenticated() && public.indexOf(toState.name) > -1) {
+                event.preventDefault();
+                $location.path('/' + fromState.name);
+                return;
+            }
+        });
+    }
+
+}])
+
+.run(['RouteValidator', function (RouteValidator) {
+    RouteValidator.private();
+}])
+
+// END REDIRECT IF NOT LOGGED IN
 
 ;

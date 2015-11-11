@@ -2,16 +2,19 @@
   <ion-content class="padding">
     <div ng-if="!isAuthenticated()">
       <button ng-click="authenticate('facebook')" class="button button-block icon-left ion-social-facebook button-positive">
-        Sign in with Facebook
+        Sign Up with Facebook
+      </button>
+   <!--    <button ng-click="authenticate('google')" class="button button-assertive button-block icon-left ion-social-googleplus">
+        Sign Up with Google
       </button>
       <button ng-click="authenticate('linkedin')" class="button button-positive button-block icon-left ion-social-linkedin linkedin">
-        Sign in with LinkedIn
-      </button>
+        Sign Up with LinkedIn
+      </button> -->
       <button ng-click="authenticate('twitter')" class="button button-block icon-left ion-social-twitter twitter">
-        Sign in with Twitter
+        Sign Up with Twitter
       </button>
       <!-- Login Form -->
-        <h2 class="text-center">Log in</h2>
+        <h2 class="text-center">Sign Up</h2>
         <form method="post" ng-submit="login()" name="loginForm">
           <div class="list ">
           	<label class="item item-input has-feedback ">
@@ -24,15 +27,24 @@
 	            <input class="form-control input-lg" type="password" name="password" ng-model="user.password" placeholder="Password" required>
 	        </label>
           </div>
-          <button type="submit" ng-disabled="loginForm.$invalid" class="button button-block button-dark">Log in</button>
+          <button type="submit" ng-disabled="loginForm.$invalid" class="button button-block button-dark">Sign Up</button>
           <br/>
           <p class="text-center text-muted">
-            <small>Don't have an account yet? <a href="/signup">Sign up</a></small>
+            <small>Already have an account? <a href="/login">Log In</a></small>
           </p>
         </form>
       <!-- End Login Form -->
 
     </div>
-    
+    <div ng-if="isAuthenticated()">
+      <div class="card">
+        <div class="item item-text-wrap">
+          You are logged in.
+        </div>
+      </div>
+      <button ng-click="logout()" class="button button-block">
+        Log Out
+      </button>
+    </div>
   </ion-content>
 </ion-view>

@@ -1,39 +1,98 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope, auth, $state, store) {
+.controller('LoginCtrl', function($scope, $auth, $state, $ionicPopup) {
   
 
+    $scope.login = function(provider) {
+      $auth.login($scope.user)
+        .then(function() {
+          $ionicPopup.alert({
+            title: 'Success',
+            content: 'You have successfully logged in!'
+          });
+          $state.go('tab.view-profile')
+        })
+        .catch(function(response) {
+          $ionicPopup.alert({
+            title: 'Error',
+            content: response.data ? response.data || response.data.message : response
+          })
 
-  function doAuth() {
-    auth.signin({
-      closable: false,
-      // This asks for the refresh token
-      // So that the user never has to log in again
-      authParams: {
-        scope: 'openid offline_access',
-        device: 'Mobile device'
-      }
-    }, function(profile, idToken, accessToken, state, refreshToken) {
-      store.set('profile', profile);
-      store.set('token', idToken);
-      store.set('refreshToken', refreshToken);
-      $state.go('tab.view-profile');
-    }, function(error) {
-      console.log("There was an error logging in", error);
-    });
-  }
+        });
+    };
 
-  $scope.$on('$ionic.reconnectScope', function() {
-    doAuth();
-  });
+    $scope.authenticate = function(provider) {
+      $auth.authenticate(provider)
+        .then(function() {
+          $ionicPopup.alert({
+            title: 'Success',
+            content: 'You have successfully logged in with ' + provider
+          });
+          $state.go('tab.view-profile')
+        })
+        .catch(function(response) {
+          $ionicPopup.alert({
+            title: 'Error',
+            content: response.data ? response.data || response.data.message : response
+          })
 
-  doAuth();
-  
+        });
+    };
+
+
+    $scope.isAuthenticated = function() {
+      return $auth.isAuthenticated();
+    };
   
 })
 
-.controller('ViewProfileCtrl', function($scope, $http, Platforms, $ionicActionSheet,$ionicScrollDelegate, $ionicPopup, $timeout) {
+
+.controller('SignupCtrl', function($scope, $auth, $state, $ionicPopup) {
   
+    $scope.signup = function() {
+      $auth.signup($scope.user)
+        .then(function(response) {
+          $auth.setToken(response);
+          $location.path('/');
+          $ionicPopup.alert({
+            content: 'You have successfully created a new account and have been signed-in'
+          });
+        })
+        .catch(function(response) {
+          $ionicPopup.alert({
+            content: response.data.message
+          });
+        });
+    };
+
+    $scope.authenticate = function(provider) {
+      $auth.authenticate(provider)
+        .then(function() {
+          $ionicPopup.alert({
+            title: 'Success',
+            content: 'You have successfully logged in!'
+          });
+          $state.go('tab.view-profile')
+        })
+        .catch(function(response) {
+          $ionicPopup.alert({
+            title: 'Error',
+            content: response.data ? response.data || response.data.message : response
+          })
+
+        });
+    };
+
+
+    $scope.isAuthenticated = function() {
+      return $auth.isAuthenticated();
+    };
+  
+})
+
+.controller('ViewProfileCtrl', function($scope, $http, Platforms, $ionicActionSheet,$ionicScrollDelegate, $ionicPopup, $timeout, $auth, Account) {
+  
+
   $scope.platforms = Platforms.all();
 
   // Set default selection
@@ -68,17 +127,7 @@ angular.module('starter.controllers', [])
 
   };
 
-  $scope.callApi = function() {
-    // Just call the API as you'd do using $http
-    $http({
-      url: 'http://localhost:3001/secured/ping',
-      method: 'GET'
-    }).then(function() {
-      alert("We got the secured data successfully");
-    }, function() {
-      alert("Please download the API seed so that you can call it.");
-    });
-  };
+
 
 })
 
@@ -117,25 +166,73 @@ angular.module('starter.controllers', [])
 
   };
 
-  $scope.callApi = function() {
-    // Just call the API as you'd do using $http
-    $http({
-      url: 'http://localhost:3001/secured/ping',
-      method: 'GET'
-    }).then(function() {
-      alert("We got the secured data successfully");
-    }, function() {
-      alert("Please download the API seed so that you can call it.");
-    });
-  };
 
 })
 
-.controller('EditProfileCtrl', function($scope, Platforms) {
+.controller('EditProfileCtrl', function($scope, Platforms, $auth, Account) {
   $scope.platforms = Platforms.all();
   $scope.remove = function(platform) {
     Platforms.remove(platform);
-  }
+  };
+
+  // Profile Editing Options  
+    $scope.getProfile = function() {
+      Account.getProfile()
+        .then(function(response) {
+          $scope.user = response.data;
+        })
+        .catch(function(response) {
+          $ionicPopup.alert({
+            content: response.data.message + response.status
+          });
+        });
+    };
+    $scope.updateProfile = function() {
+      Account.updateProfile($scope.user)
+        .then(function() {
+          $ionicPopup.alert({
+            content:'Profile has been updated'
+          });
+        })
+        .catch(function(response) {
+          $ionicPopup.alert({
+            content: response.data.message + response.status
+          });
+        });
+    };
+    $scope.link = function(provider) {
+      $auth.link(provider)
+        .then(function() {
+          $ionicPopup.alert({
+            content: 'You have successfully linked a ' + provider + ' account'
+          });
+          $scope.getProfile();
+        })
+        .catch(function(response) {
+          $ionicPopup.alert({
+            title: 'Error',
+            content: response.data.message + response.status
+          });
+        });
+    };
+    $scope.unlink = function(provider) {
+      $auth.unlink(provider)
+        .then(function() {
+          $ionicPopup.alert({
+            title: 'Success',
+            content: 'You have unlinked a ' + provider + ' account'
+          });
+          $scope.getProfile();
+        })
+        .catch(function(response) {
+          $ionicPopup.alert({
+            title: 'Error',
+            content: response.data ? response.data.message : 'Could not unlink ' + provider + ' account' + response.status
+          });
+        });
+    };
+
+    $scope.getProfile();
 })
 
 .controller('PlatformDetailCtrl', function($scope, $stateParams, Platforms, $ionicPopup, $timeout) {
@@ -166,12 +263,15 @@ angular.module('starter.controllers', [])
     
 })
 
-.controller('AccountCtrl', function($scope, $state) {
-  // $scope.logout = function() {
-  //   auth.signout();
-  //   store.remove('token');
-  //   store.remove('profile');
-  //   store.remove('refreshToken');
-  //   $state.go('login', {}, {reload: true});
-  // };
+.controller('AccountCtrl', function($scope, $state, $auth) {
+
+    $scope.isAuthenticated = function() {
+      return $auth.isAuthenticated();
+    };
+
+    $scope.logout = function() {
+      $auth.logout().then(function() {
+        $state.go('login');
+      })
+    };
 });
