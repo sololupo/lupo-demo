@@ -9,6 +9,7 @@
     "bcryptjs": "^2.2.1",
     "body-parser": "^1.14.1",
     "colors": "^1.1.2",
+    "config": "^1.17.1",
     "cordova": ">=4.2.0",
     "cors": "^2.7.1",
     "express": "^4.13.3",
@@ -22,10 +23,10 @@
     "moment": "^2.10.6",
     "mongoose": "^4.2.3",
     "morgan": "^1.6.1",
-    "request": "^2.61.0",
-    "satellizer": "^0.12.5",
     "node-gyp": "*",
-    "node-sass": "*"
+    "node-sass": "*",
+    "request": "^2.61.0",
+    "satellizer": "^0.12.5"
   },
   "devDependencies": {
     "bower": "^1.4.1",
